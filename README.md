@@ -518,15 +518,15 @@ BigData/
 
 ```mermaid
 graph TD
-    A["1. DATA COLLECTION"] --> A1["- Download 10 HD videos (Pexels API)<br/>- Generate 800 images (PIL)<br/>- Generate 200 audios (scipy)"]
-    A1 --> B["2. EMBEDDING CREATION"]
-    B --> B1["- Load CLIP model<br/>- Process images/videos/audios<br/>- Generate 512-d vectors<br/>- Save .npy files"]
-    B1 --> C["3. CLUSTER SETUP"]
-    C --> C1["- Docker Compose: 3 ES nodes<br/>- Configure sharding (3+3)<br/>- Start Kibana monitoring"]
-    C1 --> D["4. INDEXING"]
-    D --> D1["- Create index with dense_vector<br/>- Bulk index 1,010 documents<br/>- Verify shard distribution"]
-    D1 --> E["5. SEARCH & DEMO"]
-    E --> E1["- Implement KNN search<br/>- Build interactive demo<br/>- Performance testing"]
+    A["1. THU THẬP DỮ LIỆU"] --> A1["- Tải 10 video HD (Pexels API)<br/>- Tạo 800 hình ảnh (PIL)<br/>- Tạo 200 audio (scipy)"]
+    A1 --> B["2. TẠO EMBEDDING"]
+    B --> B1["- Load mô hình CLIP<br/>- Xử lý images/videos/audios<br/>- Tạo vectors 512 chiều<br/>- Lưu file .npy"]
+    B1 --> C["3. CÀI ĐẶT CLUSTER"]
+    C --> C1["- Docker Compose: 3 ES nodes<br/>- Cấu hình sharding (3+3)<br/>- Khởi động Kibana monitoring"]
+    C1 --> D["4. ĐÁNH CHỈ MỤC"]
+    D --> D1["- Tạo index với dense_vector<br/>- Bulk index 1,010 tài liệu<br/>- Kiểm tra phân bố shard"]
+    D1 --> E["5. TÌM KIẾM & DEMO"]
+    E --> E1["- Triển khai KNN search<br/>- Xây dựng demo tương tác<br/>- Kiểm tra hiệu năng"]
 
     style A fill:#E3F2FD
     style B fill:#C8E6C9
@@ -540,7 +540,7 @@ graph TD
     style E1 fill:#F5F5F5
 ```
 
-**Time:** ~2 hours total setup
+**Thời gian:** ~2 giờ hoàn tất setup
 
 ---
 
