@@ -1,935 +1,1172 @@
-# HƯỚNG DẪN CHẠY DỰ ÁN MULTIMODAL SEARCH
+# 📊 SLIDE THUYẾT TRÌNH - HỆ THỐNG QUẢN LÝ NHÀ THUỐC LONG CHÂU
 
-## ỨNG DỤNG ELASTICSEARCH XÂY DỰNG HỆ THỐNG TÌM KIẾM ĐA PHƯƠNG TIỆN
-
----
-
-## 📋 MỤC LỤC
-
-1. [Yêu cầu hệ thống](#1-yêu-cầu-hệ-thống)
-2. [Cài đặt môi trường](#2-cài-đặt-môi-trường)
-3. [Download dataset & source code](#3-download-dataset--source-code)
-4. [Cấu trúc thư mục](#4-cấu-trúc-thư-mục)
-5. [Khởi động Elasticsearch Cluster](#5-khởi-động-elasticsearch-cluster)
-6. [Tạo embeddings](#6-tạo-embeddings)
-7. [Index dữ liệu vào Elasticsearch](#7-index-dữ-liệu-vào-elasticsearch)
-8. [Chạy demo tìm kiếm](#8-chạy-demo-tìm-kiếm)
-9. [Benchmark & đánh giá](#9-benchmark--đánh-giá)
-10. [Troubleshooting](#10-troubleshooting)
+> **Format:** PowerPoint / Google Slides
+> **Thời gian:** 25-30 phút
+> **Số slide:** 40-45 slides
 
 ---
 
-## 1. YÊU CẦU HỆ THỐNG
+## SLIDE 1: TRANG BÌA
 
-### 💻 Hardware tối thiểu:
-
-- **CPU:** 4 cores (Intel i5/AMD Ryzen 5 trở lên)
-- **RAM:** 8GB (khuyến nghị 16GB)
-- **Disk:** 5GB trống (dataset 900MB + Docker images ~2GB)
-- **Network:** Kết nối internet (để download models & dependencies)
-
-### 🖥️ Software:
-
-- **OS:** Windows 10/11, macOS, Linux
-- **Docker:** Version 20.10+
-- **Docker Compose:** Version 2.0+
-- **Python:** 3.10, 3.11, hoặc 3.12
-- **Git:** (optional - để clone repo)
-
-### ✅ Kiểm tra trước khi bắt đầu:
-
-**Windows PowerShell:**
-
-```powershell
-# Kiểm tra Docker
-docker --version
-docker-compose --version
-
-# Kiểm tra Python
-python --version
-
-# Kiểm tra RAM & CPU
-systeminfo | findstr /C:"Total Physical Memory" /C:"Processor"
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│   HỆ THỐNG QUẢN LÝ NHÀ THUỐC LONG CHÂU     │
+│         CƠ SỞ 175 TÂY SƠN                   │
+│                                             │
+│   Đề tài: Phân tích và Thiết kế Hệ thống   │
+│   Quản lý Nhà thuốc ứng dụng AI & IoT      │
+│                                             │
+│   Môn học: Quản trị Hệ thống Thông tin     │
+│   Giảng viên: ThS. Trần Hồng Diệp          │
+│                                             │
+│   Nhóm 3 - Lớp 64HTTT4                     │
+│   Trường Đại học Thủy lợi                  │
+│   Tháng 12/2024                            │
+└─────────────────────────────────────────────┘
 ```
 
-**Linux/macOS:**
+**Hình ảnh:** Logo trường + Logo Long Châu
 
-```bash
-# Kiểm tra Docker
-docker --version
-docker-compose --version
+---
 
-# Kiểm tra Python
-python3 --version
+## SLIDE 2: THÀNH VIÊN NHÓM
 
-# Kiểm tra RAM & CPU
-free -h
-lscpu | grep "CPU(s)"
+```
+┌─────────────────────────────────────────────┐
+│         THÀNH VIÊN NHÓM THỰC HIỆN          │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1. Phạm Năng Ân        - Trưởng nhóm      │
+│     Phần: Tổng quan & Giới thiệu           │
+│                                             │
+│  2. Nguyễn Bảo Tuấn     - Thành viên       │
+│     Phần: Phân tích nghiệp vụ              │
+│                                             │
+│  3. Bùi Đức Tùng        - Thành viên       │
+│     Phần: Thiết kế hệ thống                │
+│                                             │
+│  4. Phan Văn Định       - Thành viên       │
+│     Phần: Công nghệ & Triển khai           │
+│                                             │
+│  5. Hoàng Văn Cường     - Thành viên       │
+│     Phần: Phân tích tài chính              │
+│                                             │
+│  6. Đào Duy Minh        - Thành viên       │
+│     Phần: Quản lý dự án                    │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 2. CÀI ĐẶT MÔI TRƯỜNG
+## SLIDE 3: NỘI DUNG TRÌNH BÀY
 
-### Bước 1: Cài Docker Desktop
-
-**Windows/macOS:**
-
-1. Download từ: https://www.docker.com/products/docker-desktop
-2. Cài đặt và khởi động Docker Desktop
-3. Verify: `docker run hello-world`
-
-**Linux (Ubuntu/Debian):**
-
-```bash
-# Cài Docker Engine
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-# Add user to docker group
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Verify
-docker run hello-world
 ```
-
-### Bước 2: Cài Python
-
-**Windows:**
-
-1. Download Python 3.11 từ: https://www.python.org/downloads/
-2. Chọn "Add Python to PATH" khi cài đặt
-3. Verify: `python --version`
-
-**Linux:**
-
-```bash
-sudo apt-get update
-sudo apt-get install python3.11 python3.11-venv python3-pip
-```
-
-**macOS:**
-
-```bash
-brew install python@3.11
+┌─────────────────────────────────────────────┐
+│            NỘI DUNG TRÌNH BÀY              │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1️⃣  Giới thiệu đề tài                     │
+│                                             │
+│  2️⃣  Phân tích hiện trạng                  │
+│                                             │
+│  3️⃣  Thiết kế giải pháp                    │
+│                                             │
+│  4️⃣  Công nghệ & Triển khai                │
+│                                             │
+│  5️⃣  Phân tích tài chính                   │
+│                                             │
+│  6️⃣  Kế hoạch thực hiện                    │
+│                                             │
+│  7️⃣  Kết luận & Kiến nghị                  │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 3. DOWNLOAD DATASET & SOURCE CODE
+## PHẦN 1: GIỚI THIỆU ĐỀ TÀI (Phạm Năng Ân)
 
-### Option 1: Từ Google Drive (Khuyến nghị)
+### SLIDE 4: TẠI SAO CHỌN ĐỀ TÀI NÀY?
 
-```powershell
-# Tạo thư mục dự án
-mkdir BigData
-cd BigData
-
-# Download 2 file ZIP từ Google Drive:
-# 1. BigData_Dataset.zip (899 MB) - chứa 1,010 files multimedia
-# 2. BigData_SourceCode.zip (49 KB) - chứa source code
-
-# Link Google Drive:
-# [THAY BẰNG LINK THỰC TẾ CỦA BẠN]
+```
+┌─────────────────────────────────────────────┐
+│       BỐI CẢNH THỊ TRƯỜNG DƯỢC PHẨM VN     │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📊 Quy mô thị trường                      │
+│     • 7.8 tỷ USD (2024)                    │
+│     • Tăng trưởng 12%/năm                  │
+│                                             │
+│  🏪 Chuỗi nhà thuốc hiện đại               │
+│     • Long Châu: 1,100+ cửa hàng           │
+│     • Pharmacity: 800+ cửa hàng            │
+│     • Guardian: 300+ cửa hàng              │
+│                                             │
+│  💡 Xu hướng Digital Transformation        │
+│     ✓ App mobile                           │
+│     ✓ E-commerce                           │
+│     ✓ POS tích hợp                         │
+│                                             │
+└─────────────────────────────────────────────┘
 ```
 
-**Giải nén:**
+**Hình ảnh:** Biểu đồ tăng trưởng thị trường
 
-```powershell
-# Windows
-Expand-Archive -Path BigData_Dataset.zip -DestinationPath .
-Expand-Archive -Path BigData_SourceCode.zip -DestinationPath .
+---
 
-# Linux/macOS
-unzip BigData_Dataset.zip
-unzip BigData_SourceCode.zip
+### SLIDE 5: TẠI SAO CHỌN LONG CHÂU?
+
 ```
-
-### Option 2: Clone từ GitHub (nếu có)
-
-```bash
-git clone https://github.com/[username]/BigData-Multimodal-Search.git
-cd BigData-Multimodal-Search
-
-# Download dataset riêng (vì quá lớn, không push lên Git)
-# Sử dụng Google Drive link
+┌─────────────────────────────────────────────┐
+│         LONG CHÂU - #1 VIỆT NAM            │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🏆 Thành tựu                              │
+│     • Từ 0 → 1,100+ cửa hàng (6 năm)      │
+│     • Doanh thu 8,500 tỷ VNĐ (2024)       │
+│     • 85 triệu giao dịch/năm               │
+│                                             │
+│  💻 Công nghệ hiện có                      │
+│     ✓ App: 1.8M users, 4.5★               │
+│     ✓ POS tích hợp barcode                 │
+│     ✓ Website bán hàng online              │
+│                                             │
+│  ❓ Gap cần giải quyết                     │
+│     • Nhiều quy trình vẫn thủ công         │
+│     • Dữ liệu chưa tích hợp sâu            │
+│     • Chưa tận dụng hết AI/ML              │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 4. CẤU TRÚC THỦ MỤC
-
-Sau khi download & giải nén, cấu trúc như sau:
+### SLIDE 6: CƠ SỞ NGHIÊN CỨU - 175 TÂY SƠN
 
 ```
-BigData/
-│
-├── data/
-│   ├── raw/                          # 911 MB multimedia files
-│   │   ├── images/                   # 800 JPEG files (55 MB)
-│   │   ├── pexels_videos/            # 10 MP4 HD videos (738 MB)
-│   │   └── audios/                   # 200 WAV files (118 MB)
-│   │
-│   └── embeddings/                   # Sẽ được tạo ở bước 6
-│       ├── images_embeddings.npy
-│       ├── videos_embeddings.npy
-│       └── audios_embeddings.npy
-│
-├── scripts/
-│   ├── setup/
-│   │   ├── 1_download_pexels_videos.py
-│   │   ├── 2a_generate_images.py
-│   │   └── 2b_generate_audios.py
-│   │
-│   ├── main/
-│   │   ├── 3_create_embeddings.py    # ⭐ QUAN TRỌNG
-│   │   ├── 4_index_to_elasticsearch.py # ⭐ QUAN TRỌNG
-│   │   └── 5_elasticsearch_search.py
-│   │
-│   └── benchmarks/
-│       ├── benchmark_cluster.py
-│       └── compare_es_solr.py
-│
-├── docker-compose-cluster.yml        # ⭐ QUAN TRỌNG
-├── demo_multimodal_search.py         # ⭐ DEMO CHÍNH
-├── requirements.txt                  # Python dependencies
-├── .env.example                      # Environment variables template
-│
-├── BAO_CAO.txt                       # Báo cáo chi tiết
-├── SLIDE_BAO_CAO.md                  # Slide thuyết trình
-└── README.md                         # Hướng dẫn ngắn gọn
+┌─────────────────────────────────────────────┐
+│       LONG CHÂU 175 TÂY SƠN - HÀ NỘI      │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📍 Vị trí                                 │
+│     • Gần Bệnh viện Bạch Mai (500m)        │
+│     • Khu dân cư đông đúc                  │
+│     • Giao thông thuận lợi                 │
+│                                             │
+│  📊 Quy mô                                 │
+│     • Diện tích: 120m²                     │
+│     • 4,200 SKU thuốc                      │
+│     • 8 nhân viên                          │
+│     • 800-1,200 khách/ngày                 │
+│                                             │
+│  💰 Doanh thu                              │
+│     • 650-750 triệu VNĐ/tháng              │
+│     • ~25,000 giao dịch/tháng              │
+│     • Giá trị TB: 28,000 VNĐ               │
+└─────────────────────────────────────────────┘
+```
+
+**Hình ảnh:** Ảnh cửa hàng 175 Tây Sơn
+
+---
+
+### SLIDE 7: VẤN ĐỀ THỰC TẾ PHÁT HIỆN
+
+```
+┌─────────────────────────────────────────────┐
+│      CÁC VẤN ĐỀ QUAN SÁT THỰC TẾ          │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ⏱️  QUY TRÌNH CHẬM                        │
+│     • Đọc đơn thuốc: thủ công              │
+│     • Thời gian phục vụ: 8-12 phút         │
+│     • Kiểm kê: mất cả ngày                 │
+│                                             │
+│  ⚠️  RỦI RO CAO                            │
+│     • Thuốc hết hạn: 3 lần/6 tháng         │
+│     • Thiệt hại: 8.7M VNĐ                  │
+│     • Thiếu hàng: 52 lần                   │
+│                                             │
+│  🔌 DỮ LIỆU RỜI RẠC                        │
+│     • 5 file Excel riêng biệt              │
+│     • Không đồng bộ                        │
+│     • Mất dữ liệu: 2 lần                   │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 5. KHỞI ĐỘNG ELASTICSEARCH CLUSTER
+### SLIDE 8: 7 VẤN ĐỀ CHÍNH CẦN GIẢI QUYẾT
 
-### Bước 1: Tạo Python Virtual Environment
-
-**Windows PowerShell:**
-
-```powershell
-# Tạo virtual environment
-python -m venv venv
-
-# Activate
-.\venv\Scripts\Activate.ps1
-
-# Nếu lỗi ExecutionPolicy:
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+┌─────────────────────────────────────────────┐
+│         7 VẤN ĐỀ CHÍNH - TỔNG HỢP         │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1️⃣  Quản lý kho kém → 27.9M VNĐ          │
+│  2️⃣  Bán hàng chậm → 8-12 phút            │
+│  3️⃣  CRM yếu → Mất 15-20% khách           │
+│  4️⃣  Dự báo kém → Thiếu 40% mùa đông      │
+│  5️⃣  HR thủ công → Sai lương 1.8M         │
+│  6️⃣  Dữ liệu rời → 5 file Excel           │
+│  7️⃣  Hạ tầng yếu → Mất data 2 lần         │
+│                                             │
+│  💰 TỔNG THIỆT HẠI: 33M VNĐ/6 tháng       │
+│  📊 65 sự cố trong 6 tháng                 │
+└─────────────────────────────────────────────┘
 ```
 
-**Linux/macOS:**
-
-```bash
-# Tạo virtual environment
-python3 -m venv venv
-
-# Activate
-source venv/bin/activate
-```
-
-### Bước 2: Cài đặt Python dependencies
-
-```powershell
-# Upgrade pip
-pip install --upgrade pip
-
-# Cài packages
-pip install -r requirements.txt
-
-# Danh sách packages chính:
-# - elasticsearch==8.11.1
-# - torch==2.1.0
-# - transformers==4.35.0
-# - pillow==10.1.0
-# - opencv-python==4.8.1.78
-# - numpy==1.26.2
-# - scipy==1.11.4
-# - requests==2.31.0
-```
-
-**⏱️ Thời gian:** ~5-10 phút (tùy tốc độ mạng)
-
-### Bước 3: Cấu hình Docker memory
-
-**Docker Desktop → Settings → Resources:**
-
-- Memory: Tối thiểu 4GB (khuyến nghị 6GB)
-- CPUs: Tối thiểu 2 cores (khuyến nghị 4 cores)
-- Swap: 1GB
-- Disk: 20GB
-
-**Apply & Restart Docker Desktop**
-
-### Bước 4: Khởi động Elasticsearch 3-node cluster
-
-```powershell
-# Kiểm tra docker-compose file
-cat docker-compose-cluster.yml
-
-# Khởi động cluster (3 nodes + Kibana)
-docker-compose -f docker-compose-cluster.yml up -d
-
-# Xem logs
-docker-compose -f docker-compose-cluster.yml logs -f
-
-# Chờ ~30-60 giây cho cluster khởi động
-```
-
-### Bước 5: Verify cluster status
-
-```powershell
-# Kiểm tra nodes
-curl http://localhost:9200/_cat/nodes?v
-
-# Output mong đợi:
-# ip         heap.percent ram.percent cpu load_1m node.role master name
-# 172.18.0.2           45          80   8    0.50 cdfhilmrstw *      es01
-# 172.18.0.3           42          80   7    0.50 cdfhilmrstw -      es02
-# 172.18.0.4           40          80   6    0.50 cdfhilmrstw -      es03
-
-# Kiểm tra cluster health
-curl http://localhost:9200/_cluster/health?pretty
-
-# Output mong đợi:
-# {
-#   "cluster_name" : "bigdata-cluster",
-#   "status" : "green",        ← PHẢI LÀ GREEN
-#   "number_of_nodes" : 3,
-#   "active_shards" : 6
-# }
-```
-
-### Bước 6: Truy cập Kibana (optional)
-
-Mở browser: http://localhost:5601
-
-- Username: `elastic`
-- Password: `changeme`
-
-**Kibana Menu → Dev Tools** để test queries
+**Hình ảnh:** Biểu đồ tròn phân bổ thiệt hại
 
 ---
 
-## 6. TẠO EMBEDDINGS
+## PHẦN 2: PHÂN TÍCH NGHIỆP VỤ (Nguyễn Bảo Tuấn)
 
-### Bước 1: Download CLIP model (lần đầu tiên)
-
-```powershell
-# Model sẽ tự động download khi chạy lần đầu
-# Size: ~350MB
-# Location: ~/.cache/huggingface/ (Linux/Mac) hoặc C:\Users\<User>\.cache\huggingface\ (Windows)
-
-# Test download model trước:
-python -c "from transformers import CLIPModel, CLIPProcessor; model = CLIPModel.from_pretrained('openai/clip-vit-base-patch32'); print('Model downloaded!')"
-```
-
-**⏱️ Thời gian download:** ~3-5 phút (tùy tốc độ mạng)
-
-### Bước 2: Tạo embeddings cho toàn bộ dataset
-
-```powershell
-# Chạy script tạo embeddings
-python scripts/main/3_create_embeddings.py
-
-# Process:
-# [1/3] Processing images...    (800 files)   → images_embeddings.npy
-# [2/3] Processing videos...    (10 files)    → videos_embeddings.npy
-# [3/3] Processing audios...    (200 files)   → audios_embeddings.npy
-```
-
-**Output:**
+### SLIDE 9: PHƯƠNG PHÁP NGHIÊN CỨU - UML
 
 ```
-Processing images: 100%|████████████████| 800/800 [02:15<00:00, 5.89it/s]
-✓ Saved: data/embeddings/images_embeddings.npy (shape: 800, 512)
-
-Processing videos: 100%|████████████████| 10/10 [01:20<00:00, 8.0s/it]
-✓ Saved: data/embeddings/videos_embeddings.npy (shape: 10, 512)
-
-Processing audios: 100%|████████████████| 200/200 [00:45<00:00, 4.44it/s]
-✓ Saved: data/embeddings/audios_embeddings.npy (shape: 200, 512)
-
-Total embeddings: 1,010 vectors (512-d)
-Total size: ~2.1 MB
-```
-
-**⏱️ Thời gian:**
-
-- CPU only: ~8-12 phút
-- GPU (nếu có): ~2-3 phút
-
-### Bước 3: Verify embeddings
-
-```powershell
-# Kiểm tra files đã tạo
-ls data/embeddings/
-
-# Output:
-# images_embeddings.npy    (~1.6 MB)
-# videos_embeddings.npy    (~20 KB)
-# audios_embeddings.npy    (~410 KB)
-
-# Test load embeddings
-python -c "import numpy as np; emb = np.load('data/embeddings/images_embeddings.npy'); print(f'Shape: {emb.shape}, Type: {emb.dtype}')"
-# Output: Shape: (800, 512), Type: float32
+┌─────────────────────────────────────────────┐
+│      TẠI SAO CHỌN UML ĐỂ THIẾT KẾ?        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ✅ Ưu điểm UML                            │
+│     • Chuẩn quốc tế (OMG)                  │
+│     • Trực quan, dễ hiểu                   │
+│     • Phân tích có hệ thống                │
+│     • Từ tổng quan → chi tiết              │
+│                                             │
+│  📐 Các loại sơ đồ sử dụng                 │
+│     1. Use Case - Ai làm gì?               │
+│     2. Activity - Quy trình như thế nào?   │
+│     3. Sequence - Tương tác ra sao?        │
+│     4. Class - Dữ liệu cấu trúc thế nào?   │
+│     5. ERD - Database thiết kế sao?        │
+│     6. Deployment - Triển khai ở đâu?      │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 7. INDEX DỮ LIỆU VÀO ELASTICSEARCH
-
-### Bước 1: Tạo index với mapping
-
-```powershell
-python scripts/main/4_index_to_elasticsearch.py
-```
-
-**Process:**
+### SLIDE 10: PHÂN TÍCH TÁC NHÂN (ACTORS)
 
 ```
-Step 1: Creating index 'multimedia'...
-  ✓ Index created with dense_vector mapping (512 dimensions)
-
-Step 2: Indexing data...
-  [1/3] Indexing images...   100%|████████| 800/800 [00:12<00:00]
-  [2/3] Indexing videos...   100%|██████████| 10/10 [00:01<00:00]
-  [3/3] Indexing audios...   100%|████████| 200/200 [00:03<00:00]
-
-Step 3: Refreshing index...
-  ✓ Index refreshed
-
-Step 4: Verifying...
-  ✓ Total documents indexed: 1,010
-  ✓ Index size: 2.4 MB
-  ✓ Shards: 3 primary + 3 replica = 6 total (100% active)
-
-✅ INDEXING COMPLETED!
-```
-
-**⏱️ Thời gian:** ~20-30 giây
-
-### Bước 2: Verify index
-
-```powershell
-# Kiểm tra index stats
-curl http://localhost:9200/multimedia/_stats?pretty
-
-# Kiểm tra số documents
-curl http://localhost:9200/multimedia/_count?pretty
-# Output: { "count": 1010 }
-
-# Kiểm tra sample document
-curl http://localhost:9200/multimedia/_search?size=1&pretty
-```
-
-### Bước 3: Kiểm tra shard distribution
-
-```powershell
-curl http://localhost:9200/_cat/shards/multimedia?v
-
-# Output:
-# index       shard prirep state   docs  size node
-# multimedia  0     p      STARTED  337  800kb es01
-# multimedia  0     r      STARTED  337  800kb es02
-# multimedia  1     p      STARTED  336  798kb es02
-# multimedia  1     r      STARTED  336  798kb es03
-# multimedia  2     p      STARTED  337  802kb es03
-# multimedia  2     r      STARTED  337  802kb es01
-```
-
-**✅ Kiểm tra:** 6 shards (3 primary + 3 replica), tất cả STARTED
-
----
-
-## 8. CHẠY DEMO TÌM KIẾM
-
-### Bước 1: Chạy interactive demo
-
-```powershell
-python demo_multimodal_search.py
-```
-
-**Menu chính:**
-
-```
-╔══════════════════════════════════════════════════════════╗
-║   MULTIMODAL SEARCH DEMO - ELASTICSEARCH CLUSTER         ║
-╚══════════════════════════════════════════════════════════╝
-
-[1] 🔍 Text-to-Media Search
-[2] 🖼️  Image-to-Media Search
-[3] 🔄 Cross-Modal Search
-[4] ⚡ Performance Test
-[5] 💚 Health Check
-[0] ❌ Exit
-
-Enter your choice:
-```
-
-### Bước 2: Thử các tính năng
-
-**[1] Text-to-Media Search:**
-
-```
-Enter search query: a person playing guitar
-
-🔍 Searching for: "a person playing guitar"
-⏱️  Search time: 68 ms
-
-Results (Top 5):
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. pexels_1192116.mp4 (video)
-   Score: 0.824 ⭐⭐⭐⭐
-   Path: data/raw/pexels_videos/pexels_1192116.mp4
-
-2. image_0432.jpg (image)
-   Score: 0.791 ⭐⭐⭐⭐
-   Path: data/raw/images/image_0432.jpg
-
-3. audio_142.wav (audio)
-   Score: 0.768 ⭐⭐⭐⭐
-   Path: data/raw/audios/audio_142.wav
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**[2] Image-to-Media Search:**
-
-```
-Enter image path: data/raw/images/image_0001.jpg
-
-🖼️  Loading image...
-⏱️  Search time: 72 ms
-
-Results (Top 5):
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. image_0001.jpg (image) - SELF
-   Score: 1.000 ⭐⭐⭐⭐⭐
-
-2. image_0234.jpg (image)
-   Score: 0.912 ⭐⭐⭐⭐⭐
-
-3. pexels_3571264.mp4 (video)
-   Score: 0.887 ⭐⭐⭐⭐
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**[4] Performance Test:**
-
-```
-Running performance test...
-Queries: 100
-Threads: 5
-
-Progress: 100%|████████████████████████| 100/100 [00:05<00:00]
-
-📊 PERFORMANCE METRICS:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Average Latency:  74.3 ms
-P95 Latency:      102.1 ms
-P99 Latency:      125.8 ms
-QPS (sustained):  13.4 queries/sec
-Peak QPS:         22.1 queries/sec
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**[5] Health Check:**
-
-```
-Checking Elasticsearch cluster...
-
-✅ CLUSTER STATUS: GREEN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Cluster Name:     bigdata-cluster
-Active Nodes:     3/3
-Active Shards:    6/6 (100%)
-Documents:        1,010
-Index Size:       2.4 MB
-Unassigned Shards: 0
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Nodes:
-  es01 (172.18.0.2) - Master, Data - Heap: 45%
-  es02 (172.18.0.3) - Data         - Heap: 42%
-  es03 (172.18.0.4) - Data         - Heap: 40%
+┌─────────────────────────────────────────────┐
+│           AI LÀM GÌ TRONG HỆ THỐNG?        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  👥 BÊN TRONG                              │
+│     • Khách hàng - Mua thuốc               │
+│     • Dược sĩ - Tư vấn & bán               │
+│     • Thủ kho - Quản lý nhập/xuất          │
+│     • Thu ngân - Xử lý thanh toán          │
+│     • Quản lý - Theo dõi KPI               │
+│                                             │
+│  🌐 BÊN NGOÀI                              │
+│     • Hệ thống BHYT                        │
+│     • Nhà cung cấp thuốc                   │
+│     • Bác sĩ/Phòng khám                    │
+│     • Cổng thanh toán                      │
+│     • CSDL tương tác thuốc                 │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 9. BENCHMARK & ĐÁNH GIÁ
+### SLIDE 11: USE CASE DIAGRAM - TỔNG QUAN
 
-### Option 1: Benchmark Elasticsearch Cluster
-
-```powershell
-python scripts/benchmarks/benchmark_cluster.py
-
-# Output:
-Running benchmark on 3-node Elasticsearch cluster...
-Warmup: 20 queries... Done!
-Testing: 1000 queries with 10 threads...
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ELASTICSEARCH CLUSTER PERFORMANCE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Total Queries:     1,000
-Duration:          74.4 seconds
-Average Latency:   74.40 ms
-Median Latency:    71.20 ms
-P95 Latency:       102.10 ms
-P99 Latency:       125.80 ms
-Min Latency:       45.30 ms
-Max Latency:       189.20 ms
-QPS (sustained):   13.44 queries/sec
-Peak QPS:          22.10 queries/sec
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+┌─────────────────────────────────────────────┐
+│         20 CHỨC NĂNG CHÍNH HỆ THỐNG        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🛒 BÁN HÀNG (5 chức năng)                 │
+│     UC01: Bán thuốc OTC                    │
+│     UC02: Xử lý đơn thuốc                  │
+│     UC03: Kiểm tra DDI                     │
+│     UC04: Thanh toán đa kênh               │
+│     UC05: Tra cứu thuốc                    │
+│                                             │
+│  📦 KHO (5 chức năng)                      │
+│     UC06-10: Nhập/Xuất/Kiểm kê/            │
+│              Cảnh báo/Đặt hàng             │
+│                                             │
+│  👥 CRM (3 chức năng)                      │
+│  📊 BÁO CÁO (2 chức năng)                  │
+│  ⚙️  QUẢN TRỊ (5 chức năng)               │
+└─────────────────────────────────────────────┘
 ```
 
-### Option 2: So sánh Elasticsearch vs Solr
+**Sơ đồ:** Use Case Diagram đầy đủ
 
-**Khởi động Solr (optional):**
+---
 
-```powershell
-# Uncomment Solr trong docker-compose-cluster.yml
-docker-compose -f docker-compose-cluster.yml up -d solr
+### SLIDE 12: QUY TRÌNH BÁN THUỐC - TRƯỚC & SAU
 
-# Verify Solr
-curl http://localhost:8983/solr/admin/info/system?wt=json
 ```
-
-**Chạy comparison:**
-
-```powershell
-python scripts/benchmarks/compare_es_solr.py
-
-# Output:
-╔══════════════════════════════════════════════════════════╗
-║        ELASTICSEARCH VS SOLR COMPARISON                  ║
-╚══════════════════════════════════════════════════════════╝
-
-Testing Elasticsearch... Done! (1000 queries)
-Testing Solr...          Done! (1000 queries)
-
-┌──────────────────┬──────────────┬─────────────┬──────────┐
-│ Metric           │ Elasticsearch│ Solr        │ Winner   │
-├──────────────────┼──────────────┼─────────────┼──────────┤
-│ Avg Latency      │ 74.4 ms      │ 82.1 ms     │ ES ✓     │
-│ P95 Latency      │ 102.1 ms     │ 115.3 ms    │ ES ✓     │
-│ QPS              │ 13.44        │ 12.17       │ ES ✓     │
-│ Configuration    │ JSON/API     │ XML files   │ ES ✓     │
-│ Vector Search    │ Native       │ Plugin      │ ES ✓     │
-│ Auto Sharding    │ Yes          │ Manual      │ ES ✓     │
-└──────────────────┴──────────────┴─────────────┴──────────┘
-
-🏆 Winner: Elasticsearch (6/6 metrics)
+┌─────────────────────────────────────────────┐
+│          SO SÁNH QUY TRÌNH BÁN HÀNG        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ❌ TRƯỚC (Thủ công)                       │
+│     1. Nhận đơn thuốc giấy                 │
+│     2. Đọc thủ công (2-3 phút)             │
+│     3. Tìm thuốc trong kho                 │
+│     4. Ghi số lô thủ công                  │
+│     5. Tính tiền bằng máy tính             │
+│     6. Ghi vào sổ Excel                    │
+│     ⏱️ Tổng: 8-12 phút                     │
+│                                             │
+│  ✅ SAU (Tự động)                          │
+│     1. Scan/Chụp đơn thuốc                 │
+│     2. OCR đọc tự động (5 giây)            │
+│     3. Auto check DDI                      │
+│     4. FEFO pick lô tự động                │
+│     5. Tính tiền + BHYT tự động            │
+│     ⏱️ Tổng: 2-3 phút (70% nhanh hơn)     │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 10. TROUBLESHOOTING
+### SLIDE 13: ACTIVITY DIAGRAM - BÁN HÀNG
 
-### ❌ Lỗi 1: Docker out of memory
-
-**Hiện tượng:**
+**Sơ đồ:** Activity Diagram đầy đủ với swimlanes
 
 ```
-elasticsearch_es01 exited with code 137
+Hiển thị quy trình:
+Khách hàng → Dược sĩ → Kiểm tra DDI → Thủ kho →
+Thu ngân → Hệ thống → Hoàn thành
 ```
 
-**Giải pháp:**
+**Chú thích:**
 
-```powershell
-# Docker Desktop → Settings → Resources
-# Tăng Memory lên 6-8GB
-# Restart Docker Desktop
+- Đường màu xanh: Flow chính
+- Hình thoi: Điểm quyết định
+- Note: Giải quyết Vấn đề 2
 
-# Hoặc giảm heap size trong docker-compose-cluster.yml:
-# ES_JAVA_OPTS: "-Xms256m -Xmx512m"  (thay vì 1g)
+---
+
+## PHẦN 3: THIẾT KẾ HỆ THỐNG (Bùi Đức Tùng)
+
+### SLIDE 14: KIẾN TRÚC 3 TẦNG
+
+```
+┌─────────────────────────────────────────────┐
+│       KIẾN TRÚC TỔNG THỂ 3-TIER            │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🖥️  PRESENTATION LAYER                    │
+│     • Web Dashboard (Quản lý)              │
+│     • Mobile App (NV + KH)                 │
+│     • POS Terminal (Bán hàng)              │
+│                                             │
+│  ⚙️  BUSINESS LAYER                        │
+│     • Sale Service                         │
+│     • Inventory Service                    │
+│     • DDI Engine                           │
+│     • CRM Service                          │
+│     • AI Forecasting                       │
+│                                             │
+│  💾 DATA LAYER                             │
+│     • PostgreSQL (OLTP)                    │
+│     • Redis Cache                          │
+│     • Data Warehouse                       │
+└─────────────────────────────────────────────┘
+```
+
+**Sơ đồ:** Architecture Diagram 3-tier
+
+---
+
+### SLIDE 15: 8 MODULE CHÍNH
+
+```
+┌─────────────────────────────────────────────┐
+│         8 MODULE GIẢI QUYẾT 7 VẤN ĐỀ       │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1️⃣  Inventory → Vấn đề 1 (Kho)          │
+│  2️⃣  POS → Vấn đề 2 (Tốc độ)             │
+│  3️⃣  CRM → Vấn đề 3 (Khách hàng)         │
+│  4️⃣  AI Forecast → Vấn đề 4 (Dự báo)     │
+│  5️⃣  HR → Vấn đề 5 (Nhân sự)             │
+│  6️⃣  BI → Vấn đề 6 (Dữ liệu)             │
+│  7️⃣  BHYT → Vấn đề 7 (Tích hợp)          │
+│  8️⃣  E-prescription → An toàn              │
+│                                             │
+│  🔗 Tất cả tích hợp chặt chẽ               │
+│  ☁️  Triển khai trên Cloud                 │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-### ❌ Lỗi 2: Cluster status YELLOW/RED
+### SLIDE 16: SEQUENCE DIAGRAM - XỬ LÝ ĐƠN THUỐC
 
-**Hiện tượng:**
+**Sơ đồ:** Sequence Diagram chi tiết
 
 ```
-"status": "yellow"
+Actors: Khách hàng → POS → OCR → DDI →
+        Inventory → BHYT → Database
+
+17 bước tương tác được minh họa rõ ràng
 ```
 
-**Giải pháp:**
+**Highlight:**
 
-```powershell
-# Kiểm tra unassigned shards
-curl http://localhost:9200/_cat/shards?v | findstr UNASSIGNED
+- Bước 6-11: Kiểm tra DDI (An toàn)
+- Bước 12-13: FEFO (Giảm hết hạn)
+- Bước 14-17: BHYT (Tiện lợi)
 
-# Giảm số replica nếu chỉ có 1-2 nodes
-curl -X PUT "http://localhost:9200/multimedia/_settings" -H "Content-Type: application/json" -d '{
-  "index": {
-    "number_of_replicas": 1
-  }
-}'
+---
 
-# Restart cluster
-docker-compose -f docker-compose-cluster.yml restart
+### SLIDE 17: DATABASE DESIGN - ERD
+
+```
+┌─────────────────────────────────────────────┐
+│        7 BẢNG CHÍNH CƠ SỞ DỮ LIỆU         │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📋 PRODUCT                                │
+│     • sku, name, atc_code                  │
+│     • manufacturer, unit                   │
+│                                             │
+│  📦 BATCH                                  │
+│     • batch_no, mfg_date, exp_date         │
+│     • status (lifecycle tracking)          │
+│                                             │
+│  🏪 INVENTORY                              │
+│     • qty_available, qty_reserved          │
+│     • location (vị trí kệ)                 │
+│                                             │
+│  🛒 SALE + SALE_ITEM                       │
+│  👤 CUSTOMER                               │
+│  👨‍⚕️ STAFF                                 │
+└─────────────────────────────────────────────┘
+```
+
+**Sơ đồ:** ERD với relationships
+
+---
+
+### SLIDE 18: STATE DIAGRAM - VÒNG ĐỜI LÔ HÀNG
+
+**Sơ đồ:** State Diagram
+
+```
+Đã đặt → Đang vận chuyển → Kiểm tra →
+Khả dụng → Sắp hết hạn → Khuyến mãi →
+Đã xuất / Tiêu hủy
+```
+
+**Highlight:**
+
+- Cảnh báo tự động khi HSD < 90 ngày
+- Khuyến mãi 30% khi gần hết hạn
+- Truy vết 100% lô hàng
+
+---
+
+## PHẦN 4: CÔNG NGHỆ & TRIỂN KHAI (Phan Văn Định)
+
+### SLIDE 19: TECHNOLOGY STACK
+
+```
+┌─────────────────────────────────────────────┐
+│           CÔNG NGHỆ SỬ DỤNG               │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🎨 FRONTEND                               │
+│     • React 18 + TypeScript                │
+│     • Ant Design / Material-UI             │
+│     • React Native (Mobile)                │
+│                                             │
+│  ⚙️  BACKEND                               │
+│     • Node.js / Python                     │
+│     • Express / FastAPI                    │
+│     • Microservices Architecture           │
+│                                             │
+│  💾 DATABASE                               │
+│     • PostgreSQL 15                        │
+│     • Redis (Cache)                        │
+│     • ClickHouse (DWH)                     │
+│                                             │
+│  🤖 AI/ML                                  │
+│     • TensorFlow / PyTorch (OCR)           │
+│     • Prophet (Forecasting)                │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-### ❌ Lỗi 3: CLIP model download failed
-
-**Hiện tượng:**
+### SLIDE 20: CÔNG NGHỆ AI - OCR
 
 ```
-OSError: Can't load weights for 'openai/clip-vit-base-patch32'
-```
-
-**Giải pháp:**
-
-```powershell
-# Option 1: Retry download
-pip install --upgrade transformers torch
-
-# Option 2: Download manually
-python -c "from transformers import CLIPModel, CLIPProcessor; CLIPModel.from_pretrained('openai/clip-vit-base-patch32')"
-
-# Option 3: Sử dụng proxy (nếu bị chặn mạng)
-set HF_ENDPOINT=https://hf-mirror.com
-python scripts/main/3_create_embeddings.py
-```
-
----
-
-### ❌ Lỗi 4: Port đã được sử dụng
-
-**Hiện tượng:**
-
-```
-Error: bind: address already in use (port 9200)
-```
-
-**Giải pháp:**
-
-```powershell
-# Tìm process đang dùng port
-netstat -ano | findstr :9200
-
-# Kill process (thay <PID> bằng process ID)
-taskkill /PID <PID> /F
-
-# Hoặc đổi port trong docker-compose-cluster.yml
-# "9200:9200" → "9300:9200"
+┌─────────────────────────────────────────────┐
+│        ĐỌC ĐƠN THUỐC TỰ ĐỘNG (OCR)        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📸 Input                                  │
+│     • Ảnh chụp đơn thuốc                   │
+│     • PDF từ bệnh viện                     │
+│     • Chữ viết tay bác sĩ                  │
+│                                             │
+│  🤖 AI Processing                          │
+│     • Deep Learning CNN                    │
+│     • Train với 10,000+ đơn mẫu            │
+│     • NLP hiểu ngữ cảnh y tế               │
+│                                             │
+│  ✅ Output                                 │
+│     • JSON danh sách thuốc                 │
+│     • Độ chính xác: 95%                    │
+│     • Thời gian: < 5 giây                  │
+│                                             │
+│  💡 Giảm 80% thời gian đọc đơn             │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-### ❌ Lỗi 5: Embedding shape mismatch
+### SLIDE 21: DEPLOYMENT DIAGRAM
 
-**Hiện tượng:**
+**Sơ đồ:** Infrastructure Deployment
 
 ```
-ValueError: Expected 512 dimensions, got 768
+Client Devices → Internet → AWS Cloud:
+  - Load Balancer
+  - App Servers (Auto Scaling)
+  - Database Cluster (Primary + Replica)
+  - Redis Cache
+  - S3 Storage
+  - Daily Backup
 ```
 
-**Giải pháp:**
+**Highlight:**
 
-```powershell
-# Xóa embeddings cũ
-Remove-Item data\embeddings\*.npy
-
-# Tạo lại với đúng model
-python scripts/main/3_create_embeddings.py
-
-# Verify dimension
-python -c "import numpy as np; print(np.load('data/embeddings/images_embeddings.npy').shape)"
-# Output phải là: (800, 512)
-```
+- High Availability (99.9% uptime)
+- Auto Scaling (handle peak hours)
+- DR Site (Disaster Recovery)
 
 ---
 
-### ❌ Lỗi 6: Slow performance (<5 QPS)
-
-**Nguyên nhân & Giải pháp:**
-
-1. **CPU throttling:**
-
-   - Đóng các ứng dụng khác
-   - Check Task Manager → CPU usage
-
-2. **Disk I/O slow:**
-
-   - Chuyển dataset sang SSD (nếu đang dùng HDD)
-   - Disable Windows Defender scanning cho thư mục BigData
-
-3. **Network latency:**
-
-   - Elasticsearch chạy trên localhost (không qua network)
-   - Check `docker network inspect` để verify
-
-4. **Heap size quá nhỏ:**
-   ```yaml
-   # Tăng heap trong docker-compose-cluster.yml
-   ES_JAVA_OPTS: "-Xms1g -Xmx2g"
-   ```
-
----
-
-### ❌ Lỗi 7: Demo crash khi search
-
-**Hiện tượng:**
+### SLIDE 22: KẾ HOẠCH 12 THÁNG
 
 ```
-ConnectionError: Connection refused (localhost:9200)
-```
-
-**Giải pháp:**
-
-```powershell
-# Kiểm tra Elasticsearch có chạy không
-docker ps | findstr elasticsearch
-
-# Nếu không chạy, restart:
-docker-compose -f docker-compose-cluster.yml up -d
-
-# Kiểm tra logs
-docker logs bigdata_es01
-
-# Test connection
-curl http://localhost:9200
-
-# Nếu vẫn lỗi, check firewall:
-netsh advfirewall firewall add rule name="ES9200" dir=in action=allow protocol=TCP localport=9200
+┌─────────────────────────────────────────────┐
+│         ROADMAP TRIỂN KHAI 12 THÁNG        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  Q1 (Tháng 1-3): Nền móng                 │
+│     ✓ Setup Cloud Infrastructure           │
+│     ✓ Xây dựng hệ thống Auth/IAM           │
+│     ✓ Module bán hàng cơ bản               │
+│                                             │
+│  Q2 (Tháng 4-6): Tính năng chính           │
+│     ✓ OCR đọc đơn thuốc                    │
+│     ✓ DDI checking                         │
+│     ✓ Quản lý kho FEFO                     │
+│                                             │
+│  Q3 (Tháng 7-9): Nâng cao                 │
+│     ✓ BHYT integration                     │
+│     ✓ AI forecasting                       │
+│     ✓ Mobile app                           │
+│                                             │
+│  Q4 (Tháng 10-12): Go-live                │
+│     ✓ UAT testing                          │
+│     ✓ Training                             │
+│     ✓ Deployment                           │
+└─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📊 CHECKLIST HOÀN THÀNH
+## PHẦN 5: PHÂN TÍCH TÀI CHÍNH (Hoàng Văn Cường)
 
-Sau khi hoàn tất tất cả các bước, bạn phải có:
+### SLIDE 23: TỔNG QUAN TÀI CHÍNH
 
-### ✅ Infrastructure:
-
-- [ ] Docker Desktop running
-- [ ] 3 Elasticsearch nodes (GREEN status)
-- [ ] Kibana accessible at http://localhost:5601
-- [ ] (Optional) Solr accessible at http://localhost:8983
-
-### ✅ Data:
-
-- [ ] 1,010 multimedia files (900MB)
-  - [ ] 800 images (55 MB)
-  - [ ] 10 videos (738 MB)
-  - [ ] 200 audios (118 MB)
-- [ ] 1,010 embeddings (512-d vectors)
-  - [ ] images_embeddings.npy
-  - [ ] videos_embeddings.npy
-  - [ ] audios_embeddings.npy
-
-### ✅ Elasticsearch:
-
-- [ ] Index `multimedia` created
-- [ ] 1,010 documents indexed
-- [ ] 6 shards active (3 primary + 3 replica)
-- [ ] Search latency < 100ms
-- [ ] QPS > 10
-
-### ✅ Demo:
-
-- [ ] Text search working
-- [ ] Image search working
-- [ ] Cross-modal search working
-- [ ] Performance test passing
-- [ ] Health check GREEN
+```
+┌─────────────────────────────────────────────┐
+│          TỔNG QUAN CHI PHÍ - LỢI ÍCH       │
+├─────────────────────────────────────────────┤
+│                                             │
+│  💰 TỔNG ĐẦU TƯ BAN ĐẦU                   │
+│     1,650 triệu VNĐ                        │
+│                                             │
+│  📅 CHI PHÍ VẬN HÀNH/NĂM                   │
+│     1,644 triệu VNĐ                        │
+│                                             │
+│  📈 LỢI ÍCH/NĂM                            │
+│     1,776 triệu VNĐ                        │
+│                                             │
+│  ⏱️  HOÀN VỐN                              │
+│     3.2 năm                                │
+│                                             │
+│  💵 ROI 5 NĂM                              │
+│     72.8%                                  │
+└─────────────────────────────────────────────┘
+```
 
 ---
 
-## 🎯 NEXT STEPS
+### SLIDE 24: CHI TIẾT CHI PHÍ ĐẦU TƯ
 
-Sau khi hoàn tất setup:
-
-1. **Chạy full benchmark:**
-
-   ```powershell
-   python scripts/benchmarks/benchmark_cluster.py
-   python scripts/benchmarks/compare_es_solr.py
-   ```
-
-2. **Chụp screenshots cho báo cáo:**
-
-   - Kibana monitoring dashboard
-   - Demo search results
-   - Performance metrics
-   - Cluster health
-
-3. **Tạo video demo (2-3 phút):**
-
-   - Screen record demo_multimodal_search.py
-   - Show text search → results
-   - Show performance test
-   - Show Kibana dashboard
-
-4. **Chuẩn bị slide thuyết trình:**
-   - Sử dụng `SLIDE_BAO_CAO.md`
-   - Thêm screenshots vào slide
-   - Practice 15-20 phút
+```
+┌─────────────────────────────────────────────┐
+│        CHI PHÍ ĐẦU TƯ - 1,650 TRIỆU       │
+├─────────────────────────────────────────────┤
+│                                             │
+│  💻 Phần mềm & Bản quyền: 800M (48%)       │
+│     • ERP License                          │
+│     • OCR API License                      │
+│     • Security Tools                       │
+│                                             │
+│  🖥️  Phần cứng: 300M (18%)                │
+│     • Server/Workstation                   │
+│     • Network Equipment                    │
+│     • POS Terminals                        │
+│                                             │
+│  ⚙️  Triển khai: 400M (24%)                │
+│     • Development                          │
+│     • Integration                          │
+│     • Testing                              │
+│                                             │
+│  📚 Đào tạo: 100M (6%)                     │
+│  🔧 Dự phòng: 50M (3%)                     │
+└─────────────────────────────────────────────┘
+```
 
 ---
 
-## 📞 HỖ TRỢ
+### SLIDE 25: LỢI ÍCH HÀNG NĂM
 
-### Tài liệu tham khảo:
-
-- **Elasticsearch Guide:** https://www.elastic.co/guide/en/elasticsearch/reference/8.11/
-- **CLIP Model:** https://huggingface.co/openai/clip-vit-base-patch32
-- **Docker Compose:** https://docs.docker.com/compose/
-
-### Báo cáo lỗi:
-
-- GitHub Issues: [link repo]
-- Email: [email]
-
-### Files quan trọng:
-
-- `BAO_CAO.txt` - Báo cáo chi tiết (2,077 dòng)
-- `SLIDE_BAO_CAO.md` - Slide thuyết trình (20 slides)
-- `HUONG_DAN_CHAY_DU_AN.md` - File này
-
----
-
-## ⏱️ TỔNG THỜI GIAN SETUP
-
-**Ước tính tổng thời gian:**
-
-1. Cài đặt môi trường: 15-20 phút
-2. Download dataset & code: 10-15 phút
-3. Cài Python dependencies: 5-10 phút
-4. Khởi động Docker cluster: 2-3 phút
-5. Tạo embeddings: 8-12 phút
-6. Index vào Elasticsearch: 0.5-1 phút
-7. Test & verify: 5-10 phút
-
-**TỔNG:** ~50-70 phút (lần đầu tiên)
-
-**Lần sau:** ~5 phút (chỉ cần `docker-compose up -d` + activate venv)
+```
+┌─────────────────────────────────────────────┐
+│       LỢI ÍCH 1,776 TRIỆU VNĐ/NĂM         │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1️⃣  Tiết kiệm nhân sự: 720M             │
+│     • Giảm 2 người kiểm kê                 │
+│     • Tự động hóa báo cáo                  │
+│     • Tối ưu ca làm việc                   │
+│                                             │
+│  2️⃣  Giảm thất thoát: 480M                │
+│     • Không còn thuốc hết hạn              │
+│     • Kiểm soát tồn kho chính xác          │
+│     • Giảm sai sót bán hàng                │
+│                                             │
+│  3️⃣  Tăng doanh thu: 420M                 │
+│     • Phục vụ nhanh hơn                    │
+│     • Luôn có hàng                         │
+│     • Tư vấn tốt hơn                       │
+│                                             │
+│  4️⃣  Khác: 156M                           │
+│     • Giảm chi phí vận hành                │
+│     • Tối ưu marketing                     │
+└─────────────────────────────────────────────┘
+```
 
 ---
 
-## 🎓 KẾT LUẬN
+### SLIDE 26: PHÂN TÍCH ROI 5 NĂM
 
-Bạn đã hoàn thành setup hệ thống tìm kiếm multimodal với:
+```
+┌─────────────────────────────────────────────┐
+│           DÒNG TIỀN DỰ KIẾN 5 NĂM          │
+├─────────────────────────────────────────────┤
+│                                             │
+│  Năm 0:  -1,650 triệu (Đầu tư)             │
+│  Năm 1:   +132 triệu                       │
+│  Năm 2:   +132 triệu                       │
+│  Năm 3:   +132 triệu                       │
+│  Năm 4:   +132 triệu                       │
+│  Năm 5:   +132 triệu                       │
+│                                             │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  NPV (8%): +1,234 triệu VNĐ                │
+│  IRR: 24.5%                                │
+│  Payback: 3.2 năm                          │
+│  ROI: 72.8%                                │
+│                                             │
+│  📊 Biểu đồ: Dòng tiền tích lũy            │
+└─────────────────────────────────────────────┘
+```
 
-✅ **900MB dataset** (1,010 files multimedia)
-✅ **3-node Elasticsearch cluster** (distributed, high availability)
-✅ **CLIP AI embeddings** (512-d vectors, cross-modal)
-✅ **Performance:** 74ms latency, 13.4 QPS
-✅ **Demo interactive** với 5 tính năng
-
-**Chúc bạn thành công với bài báo cáo Big Data!** 🚀
+**Biểu đồ:** Line chart cash flow
 
 ---
 
-**Tác giả:** [Tên của bạn]
-**Ngày tạo:** October 30, 2025
-**Version:** 1.0
-**License:** MIT
+### SLIDE 27: SO SÁNH VỚI CÁC PHƯƠNG ÁN KHÁC
+
+```
+┌─────────────────────────────────────────────┐
+│      SO SÁNH VỚI GIẢI PHÁP THAY THẾ        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  Option 1: Tự phát triển (Đề xuất)        │
+│     💰 Chi phí: 1,650M                     │
+│     ⏱️ Thời gian: 12 tháng                 │
+│     ✅ Kiểm soát 100%                      │
+│     ✅ Tùy chỉnh linh hoạt                 │
+│                                             │
+│  Option 2: SAP Healthcare                 │
+│     💰 Chi phí: 4,500M                     │
+│     ⏱️ Thời gian: 18 tháng                 │
+│     ❌ Phức tạp                            │
+│     ❌ License đắt                         │
+│                                             │
+│  Option 3: Giải pháp Việt Nam             │
+│     💰 Chi phí: 2,200M                     │
+│     ⏱️ Thời gian: 9 tháng                  │
+│     ❌ Hạn chế tính năng                   │
+│     ❌ Support kém                         │
+│                                             │
+│  ✅ Chọn Option 1: Tiết kiệm 60%           │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## PHẦN 6: KẾ HOẠCH THỰC HIỆN (Đào Duy Minh)
+
+### SLIDE 28: PHƯƠNG PHÁP AGILE
+
+```
+┌─────────────────────────────────────────────┐
+│       TRIỂN KHAI THEO PHƯƠNG PHÁP AGILE    │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🔄 Sprint Planning                        │
+│     • 2 tuần/sprint                        │
+│     • 6 sprints/quarter                    │
+│     • 24 sprints/năm                       │
+│                                             │
+│  📋 Sprint Workflow                        │
+│     Mon: Sprint Planning                   │
+│     Tue-Thu: Development                   │
+│     Fri: Sprint Review & Retro             │
+│     Daily: Stand-up 15 phút                │
+│                                             │
+│  🎯 Deliverables mỗi Sprint                │
+│     • Working software                     │
+│     • Documentation                        │
+│     • Demo cho stakeholders                │
+│                                             │
+│  ✅ Lợi ích Agile                          │
+│     • Linh hoạt thay đổi                   │
+│     • Feedback nhanh                       │
+│     • Giảm rủi ro                          │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 29: QUẢN LÝ RỦI RO
+
+```
+┌─────────────────────────────────────────────┐
+│         5 RỦI RO CHÍNH & GIẢI PHÁP         │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ⚠️  RỦI RO 1: OCR không đủ chính xác     │
+│     → Backup: Manual entry                 │
+│     → Mitigation: Train với 10K+ mẫu       │
+│                                             │
+│  ⚠️  RỦI RO 2: Quy định Bộ Y tế thay đổi  │
+│     → Tham vấn luật sư chuyên ngành        │
+│     → Thiết kế linh hoạt, dễ điều chỉnh    │
+│                                             │
+│  ⚠️  RỦI RO 3: BHYT API thay đổi          │
+│     → Adapter pattern                      │
+│     → Phương án dự phòng                   │
+│                                             │
+│  ⚠️  RỦI RO 4: Nhân viên kháng cự         │
+│     → Đào tạo kỹ lưỡng                     │
+│     → Change management                    │
+│                                             │
+│  ⚠️  RỦI RO 5: Vượt ngân sách             │
+│     → Review hàng tháng                    │
+│     → Dự phòng 15%                         │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 30: KẾ HOẠCH ĐÀO TẠO
+
+```
+┌─────────────────────────────────────────────┐
+│          CHƯƠNG TRÌNH ĐÀO TẠO              │
+├─────────────────────────────────────────────┤
+│                                             │
+│  👨‍⚕️ DƯỢC SĨ (40 giờ)                     │
+│     • Sử dụng OCR đọc đơn                  │
+│     • Hiểu cảnh báo DDI                    │
+│     • Tư vấn dựa trên hệ thống             │
+│     • Xử lý các tình huống đặc biệt        │
+│                                             │
+│  💰 THU NGÂN (24 giờ)                      │
+│     • POS mới                              │
+│     • Thanh toán đa kênh                   │
+│     • BHYT integration                     │
+│                                             │
+│  📦 THỦ KHO (32 giờ)                       │
+│     • Quản lý theo lô/HSD                  │
+│     • FEFO principle                       │
+│     • Báo cáo tồn kho                      │
+│                                             │
+│  👔 QUẢN LÝ (16 giờ)                       │
+│     • Dashboard & KPI                      │
+│     • Reports & Analytics                  │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 31: KPI ĐO LƯỜNG THÀNH CÔNG
+
+```
+┌─────────────────────────────────────────────┐
+│          CHỈ SỐ ĐÁNH GIÁ THÀNH CÔNG        │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ⏱️  VẬN HÀNH                              │
+│     Before → After                         │
+│     • Thời gian phục vụ: 10' → 3'          │
+│     • Độ chính xác kho: 85% → 99%          │
+│     • Thời gian kiểm kê: 8h → 2h           │
+│                                             │
+│  💰 KINH DOANH                             │
+│     • Doanh thu/giao dịch: +15%            │
+│     • Số khách/ngày: +20%                  │
+│     • Tỷ lệ quay lại: 60% → 80%            │
+│                                             │
+│  😊 KHÁCH HÀNG                             │
+│     • NPS Score: > 8/10                    │
+│     • Satisfaction: > 4.5/5                │
+│     • Complaint rate: < 1%                 │
+│                                             │
+│  👥 NHÂN VIÊN                              │
+│     • Năng suất: +30%                      │
+│     • Satisfaction: > 4/5                  │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## PHẦN 7: KẾT LUẬN & DEMO
+
+### SLIDE 32: TỔNG KẾT GIẢI PHÁP
+
+```
+┌─────────────────────────────────────────────┐
+│      7 VẤN ĐỀ → 1 HỆ THỐNG TÍCH HỢP       │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ✅ Vấn đề 1: Kho                          │
+│     → Module Inventory + FEFO              │
+│     → Cảnh báo tự động                     │
+│                                             │
+│  ✅ Vấn đề 2: Tốc độ                       │
+│     → OCR + POS tự động                    │
+│     → Giảm 70% thời gian                   │
+│                                             │
+│  ✅ Vấn đề 3: CRM                          │
+│     → Lưu lịch sử + Loyalty                │
+│                                             │
+│  ✅ Vấn đề 4: Dự báo                       │
+│     → AI forecasting                       │
+│                                             │
+│  ✅ Vấn đề 5-7: HR, Data, Infrastructure   │
+│     → Tự động hóa 100%                     │
+│                                             │
+│  💰 ROI: 72.8% trong 5 năm                 │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 33: LỢI ÍCH CHO CÁC BÊN
+
+```
+┌─────────────────────────────────────────────┐
+│          AI ĐƯỢC LỢI GÌ TỪ HỆ THỐNG?       │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🏢 LONG CHÂU (CÔNG TY)                    │
+│     ✓ Tăng doanh thu 15-20%                │
+│     ✓ Giảm chi phí vận hành 12%            │
+│     ✓ Tăng lợi nhuận ròng                  │
+│     ✓ Dữ liệu để mở rộng                   │
+│                                             │
+│  👥 NHÂN VIÊN                              │
+│     ✓ Làm việc dễ dàng hơn                 │
+│     ✓ Giảm stress, sai sót                 │
+│     ✓ Lương thưởng minh bạch               │
+│     ✓ Kỹ năng IT tăng                      │
+│                                             │
+│  😊 KHÁCH HÀNG                             │
+│     ✓ Phục vụ nhanh chóng                  │
+│     ✓ Tư vấn chính xác                     │
+│     ✓ An toàn hơn (DDI)                    │
+│     ✓ Trải nghiệm tốt hơn                  │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 34: TẦM NHÌN TƯƠNG LAI
+
+```
+┌─────────────────────────────────────────────┐
+│           ROADMAP TƯƠNG LAI                │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📅 NĂM 1-2 (2025-2026)                    │
+│     • Triển khai tại 175 Tây Sơn          │
+│     • Pilot tại 5-10 cửa hàng khác         │
+│     • Tối ưu dựa trên feedback             │
+│                                             │
+│  📅 NĂM 3 (2027)                           │
+│     • Scale lên 100 cửa hàng               │
+│     • Tích hợp IoT (tủ lạnh thông minh)    │
+│     • Chatbot AI tư vấn 24/7               │
+│                                             │
+│  📅 NĂM 4-5 (2028-2029)                    │
+│     • Toàn bộ 1,100+ cửa hàng              │
+│     • Xuất khẩu giải pháp                  │
+│     • Mở rộng sang bán lẻ khác             │
+│                                             │
+│  🌟 TẦM NHÌN                               │
+│     "Leading pharmacy tech in SEA"         │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 35: DEMO VIDEO (Nếu có)
+
+```
+┌─────────────────────────────────────────────┐
+│              DEMO HỆ THỐNG                 │
+├─────────────────────────────────────────────┤
+│                                             │
+│  🎬 Video Demo (2-3 phút)                  │
+│                                             │
+│     1. Scan đơn thuốc → OCR đọc            │
+│     2. Hệ thống check DDI                  │
+│     3. FEFO pick thuốc                     │
+│     4. Thanh toán BHYT                     │
+│     5. Dashboard real-time                 │
+│                                             │
+│  📸 Screenshots                            │
+│     • Giao diện POS                        │
+│     • Mobile app                           │
+│     • Dashboard quản lý                    │
+│     • Báo cáo                              │
+│                                             │
+│  [PLAY VIDEO]                              │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 36: LESSONS LEARNED
+
+```
+┌─────────────────────────────────────────────┐
+│           BÀI HỌC RÚT RA                   │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1️⃣  Phân tích kỹ trước khi thiết kế      │
+│     → 65 sự cố → 7 vấn đề chính            │
+│                                             │
+│  2️⃣  Công nghệ phục vụ nghiệp vụ          │
+│     → Không dùng tech vì tech              │
+│     → Giải quyết vấn đề thực tế            │
+│                                             │
+│  3️⃣  Người dùng là trung tâm              │
+│     → Thiết kế dễ dùng                     │
+│     → Đào tạo kỹ lưỡng                     │
+│                                             │
+│  4️⃣  Quản lý rủi ro proactive             │
+│     → Dự phòng cho mọi tình huống          │
+│                                             │
+│  5️⃣  ROI là thước đo quan trọng           │
+│     → Mọi quyết định dựa trên số liệu      │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 37: KẾT LUẬN
+
+```
+┌─────────────────────────────────────────────┐
+│              KẾT LUẬN                      │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ✅ ĐÃ THỰC HIỆN                           │
+│     • Phân tích 65 sự cố thực tế           │
+│     • Xác định 7 vấn đề chính              │
+│     • Thiết kế hệ thống 8 module           │
+│     • Tính toán ROI 72.8%                  │
+│     • Lập kế hoạch 12 tháng                │
+│                                             │
+│  🎯 ĐÓNG GÓP                               │
+│     • Áp dụng UML vào thực tế              │
+│     • Giải pháp cho ngành dược             │
+│     • Kết hợp AI/ML vào quản lý            │
+│                                             │
+│  💡 Ý NGHĨA                                │
+│     • Học thuật: Minh họa MIS              │
+│     • Thực tiễn: Có thể triển khai         │
+│     • Kinh tế: ROI cao, khả thi            │
+│                                             │
+│  🙏 Cảm ơn Thầy và các bạn đã lắng nghe!   │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 38: Q&A
+
+```
+┌─────────────────────────────────────────────┐
+│              HỎI & ĐÁP                     │
+├─────────────────────────────────────────────┤
+│                                             │
+│                                             │
+│                    ❓                       │
+│                                             │
+│         NHÓM SẴN SÀNG TRẢ LỜI              │
+│         CÁC CÂU HỎI CỦA THẦY               │
+│              VÀ CÁC BẠN                    │
+│                                             │
+│                                             │
+│  📧 Contact:                               │
+│     Email: nhom3.64httt4@tlu.edu.vn        │
+│     GitHub: github.com/nhom3-longchau      │
+│                                             │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 39: TÀI LIỆU THAM KHẢO
+
+```
+┌─────────────────────────────────────────────┐
+│          TÀI LIỆU THAM KHẢO                │
+├─────────────────────────────────────────────┤
+│                                             │
+│  📚 Sách & Giáo trình                      │
+│  [1] Quản trị HTTT - NXB ĐHQG              │
+│  [2] UML Distilled - Martin Fowler         │
+│  [3] Database Systems - Elmasri            │
+│                                             │
+│  🌐 Báo cáo & Website                      │
+│  [4] VPA Annual Report 2024                │
+│  [5] FPT Retail Financial Report           │
+│  [6] longchau.com.vn                       │
+│                                             │
+│  📄 Chuẩn & Quy định                       │
+│  [7] Thông tư 52/2017/TT-BYT               │
+│  [8] Luật Dược 2016                        │
+│  [9] UML 2.0 Specification - OMG           │
+│                                             │
+│  💻 Công nghệ                              │
+│  [10] TensorFlow OCR Documentation         │
+│  [11] PostgreSQL Official Docs             │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### SLIDE 40: CẢM ƠN
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│                                             │
+│              🎓 CẢM ƠN! 🎓                │
+│                                             │
+│                                             │
+│     Nhóm 3 - Lớp 64HTTT4                   │
+│     Trường Đại học Thủy lợi                │
+│                                             │
+│                                             │
+│   "Technology for Better Healthcare"       │
+│                                             │
+│                                             │
+│     Kính chúc Thầy dồi dào sức khỏe       │
+│        Chúc các bạn học tốt! 📚           │
+│                                             │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+**Hình ảnh:** Logo trường, hình ảnh nhóm
+
+---
+
+## 📝 HƯỚNG DẪN SỬ DỤNG FILE SLIDE
+
+### ✅ Cách tạo PowerPoint:
+
+1. **Mở PowerPoint** → New Presentation
+2. **Chọn theme** Professional (ví dụ: Ion, Facet)
+3. **Copy nội dung** từng slide ở trên
+4. **Thêm hình ảnh:**
+   - Logo trường
+   - Logo Long Châu
+   - Sơ đồ PlantUML (export PNG)
+   - Charts (Excel → paste)
+   - Screenshots (nếu có demo)
+
+### 🎨 Màu sắc đề xuất:
+
+- **Primary:** #0066CC (Xanh dương)
+- **Secondary:** #00AA55 (Xanh lá - Long Châu)
+- **Accent:** #FF6600 (Cam)
+- **Text:** #333333 (Xám đậm)
+- **Background:** #FFFFFF (Trắng)
+
+### 📐 Font chữ:
+
+- **Tiêu đề:** Montserrat Bold / Arial Bold (28-36pt)
+- **Nội dung:** Montserrat Regular / Arial (16-20pt)
+- **Note:** Montserrat Light / Arial (12-14pt)
+
+### 🖼️ Layout mỗi slide:
+
+- **Header:** Tiêu đề slide (màu primary)
+- **Body:** Nội dung chính (bullet points)
+- **Footer:** Logo + Số trang + Tên nhóm
+
+### ⏱️ Timing:
+
+- Slide 1-3: 2 phút
+- Phần 1 (4-8): 5 phút - **Phạm Năng Ân**
+- Phần 2 (9-13): 5 phút - **Nguyễn Bảo Tuấn**
+- Phần 3 (14-18): 5 phút - **Bùi Đức Tùng**
+- Phần 4 (19-22): 4 phút - **Phan Văn Định**
+- Phần 5 (23-27): 4 phút - **Hoàng Văn Cường**
+- Phần 6 (28-31): 4 phút - **Đào Duy Minh**
+- Phần 7 (32-40): 3 phút - **Kết luận chung**
+
+**TỔNG:** ~30 phút + 5 phút Q&A = **35 phút**
+
+---
+
+## 🎯 TIP THUYẾT TRÌNH
+
+1. **Không đọc slide:** Slide chỉ là gợi ý
+2. **Nhìn vào audience:** Giao tiếp bằng mắt
+3. **Sử dụng pointer:** Chỉ vào điểm quan trọng
+4. **Kể chuyện:** Ví dụ về bà cụ mua thuốc
+5. **Tự tin:** Nắm vững nội dung
+6. **Backup:** Chuẩn bị trả lời câu hỏi
+
+---
+
+**File này sẵn sàng để convert sang PowerPoint!** 🎉
