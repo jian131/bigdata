@@ -2,7 +2,7 @@
 
 > **Format:** PowerPoint / Google Slides
 > **Thời gian:** 15 phút
-> **Số slide:** 20 slides (2 phút/người × 6 người)
+> **Số slide:** 11 slides (Phạm Năng Ân 2p, 5 người khác mỗi người 2p, kết luận 1.5p)
 
 ---
 
@@ -88,7 +88,43 @@
 
 ---
 
-## SLIDE 4: USE CASE & QUY TRÌNH (Nguyễn Bảo Tuấn - 2 phút)
+## SLIDE 4: 7 VẤN ĐỀ → 7 GIẢI PHÁP (Phạm Năng Ân - 30 giây tiếp)
+
+```
+┌─────────────────────────────────────────────┐
+│         VẤN ĐỀ → GIẢI PHÁP CỤ THỂ         │
+├─────────────────────────────────────────────┤
+│                                             │
+│  1️⃣  Kho kém (27.9M) → Module Inventory   │
+│     ✓ FEFO tự động xếp thuốc hết hạn trước │
+│     ✓ Cảnh báo SMS khi HSD < 90 ngày       │
+│                                             │
+│  2️⃣  Bán chậm (8-12') → OCR + POS         │
+│     ✓ Đọc đơn tự động 5 giây (AI CNN)     │
+│     ✓ Auto kiểm tra DDI + BHYT             │
+│                                             │
+│  3️⃣  CRM yếu (mất 15-20% khách) → CRM     │
+│     ✓ Lưu lịch sử mua + Loyalty point      │
+│     ✓ SMS nhắc tái khám                    │
+│                                             │
+│  4️⃣  Dự báo kém (thiếu 40%) → AI Forecast │
+│     ✓ Prophet model dự báo nhu cầu         │
+│     ✓ Auto đặt hàng khi tồn < ngưỡng       │
+│                                             │
+│  5️⃣  HR thủ công → Module HR              │
+│     ✓ Chấm công QR + Tính lương tự động   │
+│                                             │
+│  6️⃣  Data rời (5 Excel) → BI Dashboard    │
+│     ✓ 1 database duy nhất PostgreSQL       │
+│                                             │
+│  7️⃣  Hạ tầng yếu → AWS Cloud              │
+│     ✓ Backup tự động + HA 99.9%            │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## SLIDE 5: USE CASE & QUY TRÌNH (Nguyễn Bảo Tuấn - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -119,7 +155,7 @@
 
 ---
 
-## SLIDE 5: KIẾN TRÚC & DATABASE (Bùi Đức Tùng - 2 phút)
+## SLIDE 6: KIẾN TRÚC & DATABASE (Bùi Đức Tùng - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -151,7 +187,7 @@
 
 ---
 
-## SLIDE 6: CÔNG NGHỆ & TRIỂN KHAI (Phan Văn Định - 2 phút)
+## SLIDE 7: CÔNG NGHỆ & TRIỂN KHAI (Phan Văn Định - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -183,7 +219,7 @@
 
 ---
 
-## SLIDE 7: TÀI CHÍNH & ROI (Hoàng Văn Cường - 2 phút)
+## SLIDE 8: TÀI CHÍNH & ROI (Hoàng Văn Cường - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -217,7 +253,7 @@
 
 ---
 
-## SLIDE 8: QUẢN LÝ DỰ ÁN (Đào Duy Minh - 2 phút)
+## SLIDE 9: QUẢN LÝ DỰ ÁN (Đào Duy Minh - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -250,7 +286,7 @@
 
 ---
 
-## SLIDE 9: KẾT LUẬN & LỢI ÍCH (Cả nhóm - 1 phút)
+## SLIDE 10: KẾT LUẬN & LỢI ÍCH (Cả nhóm - 1 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -280,7 +316,7 @@
 
 ---
 
-## SLIDE 10: Q&A & CẢM ƠN
+## SLIDE 11: Q&A & CẢM ƠN
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -309,23 +345,24 @@
 
 ---
 
-## 📝 HƯỚNG DẪN SỬ DỤNG (10 SLIDES)
+## 📝 HƯỚNG DẪN SỬ DỤNG (11 SLIDES)
 
 ### ✅ Phân công thời gian:
 
-| Slide | Người thuyết trình | Thời gian | Nội dung chính           |
-| ----- | ------------------ | --------- | ------------------------ |
-| 1-2   | Cả nhóm            | 30s       | Giới thiệu, thành viên   |
-| 3     | Phạm Năng Ân       | 2 phút    | 7 vấn đề tại 175 Tây Sơn |
-| 4     | Nguyễn Bảo Tuấn    | 2 phút    | Use Case + Quy trình     |
-| 5     | Bùi Đức Tùng       | 2 phút    | Kiến trúc + Database     |
-| 6     | Phan Văn Định      | 2 phút    | Công nghệ + Deployment   |
-| 7     | Hoàng Văn Cường    | 2 phút    | Tài chính + ROI          |
-| 8     | Đào Duy Minh       | 2 phút    | Agile + Rủi ro + KPI     |
-| 9     | Cả nhóm            | 1 phút    | Kết luận tổng hợp        |
-| 10    | Cả nhóm            | 30s + Q&A | Cảm ơn + Trả lời         |
+| Slide | Người thuyết trình | Thời gian | Nội dung chính             |
+| ----- | ------------------ | --------- | -------------------------- |
+| 1-2   | Cả nhóm            | 30s       | Giới thiệu, thành viên     |
+| 3     | Phạm Năng Ân       | 1.5 phút  | 7 vấn đề tại 175 Tây Sơn   |
+| 4     | Phạm Năng Ân       | 30s       | **7 Vấn đề → 7 Giải pháp** |
+| 5     | Nguyễn Bảo Tuấn    | 2 phút    | Use Case + Quy trình       |
+| 6     | Bùi Đức Tùng       | 2 phút    | Kiến trúc + Database       |
+| 7     | Phan Văn Định      | 2 phút    | Công nghệ + Deployment     |
+| 8     | Hoàng Văn Cường    | 2 phút    | Tài chính + ROI            |
+| 9     | Đào Duy Minh       | 2 phút    | Agile + Rủi ro + KPI       |
+| 10    | Cả nhóm            | 1 phút    | Kết luận tổng hợp          |
+| 11    | Cả nhóm            | 30s + Q&A | Cảm ơn + Trả lời           |
 
-**TỔNG:** ~13 phút thuyết trình + 2 phút Q&A = **15 phút**
+**TỔNG:** ~13.5 phút thuyết trình + 1.5 phút Q&A = **15 phút**
 
 ### 🎨 Màu sắc & Font:
 
@@ -334,13 +371,14 @@
 - **Tiêu đề:** Arial Bold 32pt
 - **Nội dung:** Arial Regular 18pt
 
-### � Sơ đồ cần chèn:
+### 📐 Sơ đồ cần chèn:
 
 - **Slide 3:** Biểu đồ tròn phân bổ thiệt hại
-- **Slide 4:** Use Case Diagram + Activity Diagram
-- **Slide 5:** Architecture 3-tier + ERD
-- **Slide 6:** Deployment Diagram AWS
-- **Slide 7:** Line chart cash flow 5 năm
+- **Slide 4:** Bảng mapping Vấn đề → Giải pháp (có thể dùng icon/màu sắc)
+- **Slide 5:** Use Case Diagram + Activity Diagram
+- **Slide 6:** Architecture 3-tier + ERD
+- **Slide 7:** Deployment Diagram AWS
+- **Slide 8:** Line chart cash flow 5 năm
 
 ### 🎯 Tips thuyết trình:
 
