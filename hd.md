@@ -1,8 +1,8 @@
 # 📊 SLIDE THUYẾT TRÌNH - HỆ THỐNG QUẢN LÝ NHÀ THUỐC LONG CHÂU
 
 > **Format:** PowerPoint / Google Slides
-> **Thời gian:** 25-30 phút
-> **Số slide:** 40-45 slides
+> **Thời gian:** 15 phút
+> **Số slide:** 20 slides (2 phút/người × 6 người)
 
 ---
 
@@ -59,149 +59,19 @@
 
 ---
 
-## SLIDE 3: NỘI DUNG TRÌNH BÀY
+## SLIDE 3: ĐỀ TÀI & 7 VẤN ĐỀ (Phạm Năng Ân - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│            NỘI DUNG TRÌNH BÀY              │
+│    LONG CHÂU 175 TÂY SƠN - 7 VẤN ĐỀ       │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  1️⃣  Giới thiệu đề tài                     │
+│  � CƠ SỞ NGHIÊN CỨU                       │
+│     • 175 Tây Sơn, Hà Nội (gần BV Bạch Mai)│
+│     • 120m², 4,200 SKU, 800-1,200 khách/ngày│
+│     • Doanh thu: 650-750M VNĐ/tháng        │
 │                                             │
-│  2️⃣  Phân tích hiện trạng                  │
-│                                             │
-│  3️⃣  Thiết kế giải pháp                    │
-│                                             │
-│  4️⃣  Công nghệ & Triển khai                │
-│                                             │
-│  5️⃣  Phân tích tài chính                   │
-│                                             │
-│  6️⃣  Kế hoạch thực hiện                    │
-│                                             │
-│  7️⃣  Kết luận & Kiến nghị                  │
-└─────────────────────────────────────────────┘
-```
-
----
-
-## PHẦN 1: GIỚI THIỆU ĐỀ TÀI (Phạm Năng Ân)
-
-### SLIDE 4: TẠI SAO CHỌN ĐỀ TÀI NÀY?
-
-```
-┌─────────────────────────────────────────────┐
-│       BỐI CẢNH THỊ TRƯỜNG DƯỢC PHẨM VN     │
-├─────────────────────────────────────────────┤
-│                                             │
-│  📊 Quy mô thị trường                      │
-│     • 7.8 tỷ USD (2024)                    │
-│     • Tăng trưởng 12%/năm                  │
-│                                             │
-│  🏪 Chuỗi nhà thuốc hiện đại               │
-│     • Long Châu: 1,100+ cửa hàng           │
-│     • Pharmacity: 800+ cửa hàng            │
-│     • Guardian: 300+ cửa hàng              │
-│                                             │
-│  💡 Xu hướng Digital Transformation        │
-│     ✓ App mobile                           │
-│     ✓ E-commerce                           │
-│     ✓ POS tích hợp                         │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-**Hình ảnh:** Biểu đồ tăng trưởng thị trường
-
----
-
-### SLIDE 5: TẠI SAO CHỌN LONG CHÂU?
-
-```
-┌─────────────────────────────────────────────┐
-│         LONG CHÂU - #1 VIỆT NAM            │
-├─────────────────────────────────────────────┤
-│                                             │
-│  🏆 Thành tựu                              │
-│     • Từ 0 → 1,100+ cửa hàng (6 năm)      │
-│     • Doanh thu 8,500 tỷ VNĐ (2024)       │
-│     • 85 triệu giao dịch/năm               │
-│                                             │
-│  💻 Công nghệ hiện có                      │
-│     ✓ App: 1.8M users, 4.5★               │
-│     ✓ POS tích hợp barcode                 │
-│     ✓ Website bán hàng online              │
-│                                             │
-│  ❓ Gap cần giải quyết                     │
-│     • Nhiều quy trình vẫn thủ công         │
-│     • Dữ liệu chưa tích hợp sâu            │
-│     • Chưa tận dụng hết AI/ML              │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 6: CƠ SỞ NGHIÊN CỨU - 175 TÂY SƠN
-
-```
-┌─────────────────────────────────────────────┐
-│       LONG CHÂU 175 TÂY SƠN - HÀ NỘI      │
-├─────────────────────────────────────────────┤
-│                                             │
-│  📍 Vị trí                                 │
-│     • Gần Bệnh viện Bạch Mai (500m)        │
-│     • Khu dân cư đông đúc                  │
-│     • Giao thông thuận lợi                 │
-│                                             │
-│  📊 Quy mô                                 │
-│     • Diện tích: 120m²                     │
-│     • 4,200 SKU thuốc                      │
-│     • 8 nhân viên                          │
-│     • 800-1,200 khách/ngày                 │
-│                                             │
-│  💰 Doanh thu                              │
-│     • 650-750 triệu VNĐ/tháng              │
-│     • ~25,000 giao dịch/tháng              │
-│     • Giá trị TB: 28,000 VNĐ               │
-└─────────────────────────────────────────────┘
-```
-
-**Hình ảnh:** Ảnh cửa hàng 175 Tây Sơn
-
----
-
-### SLIDE 7: VẤN ĐỀ THỰC TẾ PHÁT HIỆN
-
-```
-┌─────────────────────────────────────────────┐
-│      CÁC VẤN ĐỀ QUAN SÁT THỰC TẾ          │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ⏱️  QUY TRÌNH CHẬM                        │
-│     • Đọc đơn thuốc: thủ công              │
-│     • Thời gian phục vụ: 8-12 phút         │
-│     • Kiểm kê: mất cả ngày                 │
-│                                             │
-│  ⚠️  RỦI RO CAO                            │
-│     • Thuốc hết hạn: 3 lần/6 tháng         │
-│     • Thiệt hại: 8.7M VNĐ                  │
-│     • Thiếu hàng: 52 lần                   │
-│                                             │
-│  🔌 DỮ LIỆU RỜI RẠC                        │
-│     • 5 file Excel riêng biệt              │
-│     • Không đồng bộ                        │
-│     • Mất dữ liệu: 2 lần                   │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 8: 7 VẤN ĐỀ CHÍNH CẦN GIẢI QUYẾT
-
-```
-┌─────────────────────────────────────────────┐
-│         7 VẤN ĐỀ CHÍNH - TỔNG HỢP         │
-├─────────────────────────────────────────────┤
-│                                             │
+│  ⚠️  7 VẤN ĐỀ CHÍNH                        │
 │  1️⃣  Quản lý kho kém → 27.9M VNĐ          │
 │  2️⃣  Bán hàng chậm → 8-12 phút            │
 │  3️⃣  CRM yếu → Mất 15-20% khách           │
@@ -211,829 +81,211 @@
 │  7️⃣  Hạ tầng yếu → Mất data 2 lần         │
 │                                             │
 │  💰 TỔNG THIỆT HẠI: 33M VNĐ/6 tháng       │
-│  📊 65 sự cố trong 6 tháng                 │
 └─────────────────────────────────────────────┘
 ```
 
-**Hình ảnh:** Biểu đồ tròn phân bổ thiệt hại
+**Hình ảnh:** Ảnh cửa hàng + Biểu đồ tròn thiệt hại
 
 ---
 
-## PHẦN 2: PHÂN TÍCH NGHIỆP VỤ (Nguyễn Bảo Tuấn)
-
-### SLIDE 9: PHƯƠNG PHÁP NGHIÊN CỨU - UML
+## SLIDE 4: USE CASE & QUY TRÌNH (Nguyễn Bảo Tuấn - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│      TẠI SAO CHỌN UML ĐỂ THIẾT KẾ?        │
+│    20 CHỨC NĂNG & QUY TRÌNH BÁN HÀNG       │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  ✅ Ưu điểm UML                            │
-│     • Chuẩn quốc tế (OMG)                  │
-│     • Trực quan, dễ hiểu                   │
-│     • Phân tích có hệ thống                │
-│     • Từ tổng quan → chi tiết              │
+│  🎯 20 USE CASES                           │
+│     � Bán hàng (5): POS, đơn thuốc, DDI  │
+│     📦 Kho (5): FEFO, cảnh báo HSD        │
+│     👥 CRM (3): Lịch sử, loyalty          │
+│     📊 BI (2): Dashboard, báo cáo         │
+│     ⚙️  Admin (5): User, phân quyền       │
 │                                             │
-│  📐 Các loại sơ đồ sử dụng                 │
-│     1. Use Case - Ai làm gì?               │
-│     2. Activity - Quy trình như thế nào?   │
-│     3. Sequence - Tương tác ra sao?        │
-│     4. Class - Dữ liệu cấu trúc thế nào?   │
-│     5. ERD - Database thiết kế sao?        │
-│     6. Deployment - Triển khai ở đâu?      │
+│  ⏱️  QUY TRÌNH BÁN - TRƯỚC & SAU          │
+│                                             │
+│  ❌ Trước: Thủ công → 8-12 phút           │
+│     Đọc đơn → Tìm thuốc → Ghi sổ          │
+│                                             │
+│  ✅ Sau: Tự động → 2-3 phút (70% nhanh)   │
+│     OCR scan → Auto DDI → FEFO pick        │
+│     → BHYT → Thanh toán                    │
+│                                             │
+│  📐 Sơ đồ: Use Case + Activity Diagram    │
 └─────────────────────────────────────────────┘
 ```
 
+**Sơ đồ:** Use Case + Activity Diagram (2 in 1)
+
 ---
 
-### SLIDE 10: PHÂN TÍCH TÁC NHÂN (ACTORS)
+## SLIDE 5: KIẾN TRÚC & DATABASE (Bùi Đức Tùng - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│           AI LÀM GÌ TRONG HỆ THỐNG?        │
+│      KIẾN TRÚC 3-TIER & 8 MODULE           │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  👥 BÊN TRONG                              │
-│     • Khách hàng - Mua thuốc               │
-│     • Dược sĩ - Tư vấn & bán               │
-│     • Thủ kho - Quản lý nhập/xuất          │
-│     • Thu ngân - Xử lý thanh toán          │
-│     • Quản lý - Theo dõi KPI               │
+│  🏗️  KIẾN TRÚC 3 TẦNG                     │
+│     • Presentation: Web + Mobile + POS     │
+│     • Business: 8 Microservices            │
+│     • Data: PostgreSQL + Redis + DWH       │
 │                                             │
-│  🌐 BÊN NGOÀI                              │
-│     • Hệ thống BHYT                        │
-│     • Nhà cung cấp thuốc                   │
-│     • Bác sĩ/Phòng khám                    │
-│     • Cổng thanh toán                      │
-│     • CSDL tương tác thuốc                 │
+│  ⚙️  8 MODULE GIẢI 7 VẤN ĐỀ               │
+│     1️⃣  Inventory → Kho FEFO             │
+│     2️⃣  POS + OCR → Tốc độ               │
+│     3️⃣  CRM → Khách hàng                 │
+│     4️⃣  AI Forecast → Dự báo             │
+│     5️⃣  HR → Nhân sự                     │
+│     6️⃣  BI → Tích hợp dữ liệu            │
+│     7️⃣  BHYT → Bảo hiểm                  │
+│     8️⃣  E-prescription → An toàn         │
+│                                             │
+│  � DATABASE: 7 bảng chính                │
+│     Product → Batch → Inventory →          │
+│     Sale → Customer → Staff                │
 └─────────────────────────────────────────────┘
 ```
 
+**Sơ đồ:** Architecture 3-tier + ERD
+
 ---
 
-### SLIDE 11: USE CASE DIAGRAM - TỔNG QUAN
+## SLIDE 6: CÔNG NGHỆ & TRIỂN KHAI (Phan Văn Định - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│         20 CHỨC NĂNG CHÍNH HỆ THỐNG        │
+│    TECHNOLOGY STACK & DEPLOYMENT           │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  🛒 BÁN HÀNG (5 chức năng)                 │
-│     UC01: Bán thuốc OTC                    │
-│     UC02: Xử lý đơn thuốc                  │
-│     UC03: Kiểm tra DDI                     │
-│     UC04: Thanh toán đa kênh               │
-│     UC05: Tra cứu thuốc                    │
+│  💻 CÔNG NGHỆ                              │
+│     • Frontend: React 18 + TypeScript      │
+│     • Backend: Node.js + Python            │
+│     • DB: PostgreSQL 15 + Redis            │
+│     • AI: TensorFlow (OCR 95% accuracy)    │
 │                                             │
-│  📦 KHO (5 chức năng)                      │
-│     UC06-10: Nhập/Xuất/Kiểm kê/            │
-│              Cảnh báo/Đặt hàng             │
-│                                             │
-│  👥 CRM (3 chức năng)                      │
-│  📊 BÁO CÁO (2 chức năng)                  │
-│  ⚙️  QUẢN TRỊ (5 chức năng)               │
-└─────────────────────────────────────────────┘
-```
-
-**Sơ đồ:** Use Case Diagram đầy đủ
-
----
-
-### SLIDE 12: QUY TRÌNH BÁN THUỐC - TRƯỚC & SAU
-
-```
-┌─────────────────────────────────────────────┐
-│          SO SÁNH QUY TRÌNH BÁN HÀNG        │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ❌ TRƯỚC (Thủ công)                       │
-│     1. Nhận đơn thuốc giấy                 │
-│     2. Đọc thủ công (2-3 phút)             │
-│     3. Tìm thuốc trong kho                 │
-│     4. Ghi số lô thủ công                  │
-│     5. Tính tiền bằng máy tính             │
-│     6. Ghi vào sổ Excel                    │
-│     ⏱️ Tổng: 8-12 phút                     │
-│                                             │
-│  ✅ SAU (Tự động)                          │
-│     1. Scan/Chụp đơn thuốc                 │
-│     2. OCR đọc tự động (5 giây)            │
-│     3. Auto check DDI                      │
-│     4. FEFO pick lô tự động                │
-│     5. Tính tiền + BHYT tự động            │
-│     ⏱️ Tổng: 2-3 phút (70% nhanh hơn)     │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 13: ACTIVITY DIAGRAM - BÁN HÀNG
-
-**Sơ đồ:** Activity Diagram đầy đủ với swimlanes
-
-```
-Hiển thị quy trình:
-Khách hàng → Dược sĩ → Kiểm tra DDI → Thủ kho →
-Thu ngân → Hệ thống → Hoàn thành
-```
-
-**Chú thích:**
-
-- Đường màu xanh: Flow chính
-- Hình thoi: Điểm quyết định
-- Note: Giải quyết Vấn đề 2
-
----
-
-## PHẦN 3: THIẾT KẾ HỆ THỐNG (Bùi Đức Tùng)
-
-### SLIDE 14: KIẾN TRÚC 3 TẦNG
-
-```
-┌─────────────────────────────────────────────┐
-│       KIẾN TRÚC TỔNG THỂ 3-TIER            │
-├─────────────────────────────────────────────┤
-│                                             │
-│  🖥️  PRESENTATION LAYER                    │
-│     • Web Dashboard (Quản lý)              │
-│     • Mobile App (NV + KH)                 │
-│     • POS Terminal (Bán hàng)              │
-│                                             │
-│  ⚙️  BUSINESS LAYER                        │
-│     • Sale Service                         │
-│     • Inventory Service                    │
-│     • DDI Engine                           │
-│     • CRM Service                          │
-│     • AI Forecasting                       │
-│                                             │
-│  💾 DATA LAYER                             │
-│     • PostgreSQL (OLTP)                    │
-│     • Redis Cache                          │
-│     • Data Warehouse                       │
-└─────────────────────────────────────────────┘
-```
-
-**Sơ đồ:** Architecture Diagram 3-tier
-
----
-
-### SLIDE 15: 8 MODULE CHÍNH
-
-```
-┌─────────────────────────────────────────────┐
-│         8 MODULE GIẢI QUYẾT 7 VẤN ĐỀ       │
-├─────────────────────────────────────────────┤
-│                                             │
-│  1️⃣  Inventory → Vấn đề 1 (Kho)          │
-│  2️⃣  POS → Vấn đề 2 (Tốc độ)             │
-│  3️⃣  CRM → Vấn đề 3 (Khách hàng)         │
-│  4️⃣  AI Forecast → Vấn đề 4 (Dự báo)     │
-│  5️⃣  HR → Vấn đề 5 (Nhân sự)             │
-│  6️⃣  BI → Vấn đề 6 (Dữ liệu)             │
-│  7️⃣  BHYT → Vấn đề 7 (Tích hợp)          │
-│  8️⃣  E-prescription → An toàn              │
-│                                             │
-│  🔗 Tất cả tích hợp chặt chẽ               │
-│  ☁️  Triển khai trên Cloud                 │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 16: SEQUENCE DIAGRAM - XỬ LÝ ĐƠN THUỐC
-
-**Sơ đồ:** Sequence Diagram chi tiết
-
-```
-Actors: Khách hàng → POS → OCR → DDI →
-        Inventory → BHYT → Database
-
-17 bước tương tác được minh họa rõ ràng
-```
-
-**Highlight:**
-
-- Bước 6-11: Kiểm tra DDI (An toàn)
-- Bước 12-13: FEFO (Giảm hết hạn)
-- Bước 14-17: BHYT (Tiện lợi)
-
----
-
-### SLIDE 17: DATABASE DESIGN - ERD
-
-```
-┌─────────────────────────────────────────────┐
-│        7 BẢNG CHÍNH CƠ SỞ DỮ LIỆU         │
-├─────────────────────────────────────────────┤
-│                                             │
-│  📋 PRODUCT                                │
-│     • sku, name, atc_code                  │
-│     • manufacturer, unit                   │
-│                                             │
-│  📦 BATCH                                  │
-│     • batch_no, mfg_date, exp_date         │
-│     • status (lifecycle tracking)          │
-│                                             │
-│  🏪 INVENTORY                              │
-│     • qty_available, qty_reserved          │
-│     • location (vị trí kệ)                 │
-│                                             │
-│  🛒 SALE + SALE_ITEM                       │
-│  👤 CUSTOMER                               │
-│  👨‍⚕️ STAFF                                 │
-└─────────────────────────────────────────────┘
-```
-
-**Sơ đồ:** ERD với relationships
-
----
-
-### SLIDE 18: STATE DIAGRAM - VÒNG ĐỜI LÔ HÀNG
-
-**Sơ đồ:** State Diagram
-
-```
-Đã đặt → Đang vận chuyển → Kiểm tra →
-Khả dụng → Sắp hết hạn → Khuyến mãi →
-Đã xuất / Tiêu hủy
-```
-
-**Highlight:**
-
-- Cảnh báo tự động khi HSD < 90 ngày
-- Khuyến mãi 30% khi gần hết hạn
-- Truy vết 100% lô hàng
-
----
-
-## PHẦN 4: CÔNG NGHỆ & TRIỂN KHAI (Phan Văn Định)
-
-### SLIDE 19: TECHNOLOGY STACK
-
-```
-┌─────────────────────────────────────────────┐
-│           CÔNG NGHỆ SỬ DỤNG               │
-├─────────────────────────────────────────────┤
-│                                             │
-│  🎨 FRONTEND                               │
-│     • React 18 + TypeScript                │
-│     • Ant Design / Material-UI             │
-│     • React Native (Mobile)                │
-│                                             │
-│  ⚙️  BACKEND                               │
-│     • Node.js / Python                     │
-│     • Express / FastAPI                    │
-│     • Microservices Architecture           │
-│                                             │
-│  💾 DATABASE                               │
-│     • PostgreSQL 15                        │
-│     • Redis (Cache)                        │
-│     • ClickHouse (DWH)                     │
-│                                             │
-│  🤖 AI/ML                                  │
-│     • TensorFlow / PyTorch (OCR)           │
-│     • Prophet (Forecasting)                │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 20: CÔNG NGHỆ AI - OCR
-
-```
-┌─────────────────────────────────────────────┐
-│        ĐỌC ĐƠN THUỐC TỰ ĐỘNG (OCR)        │
-├─────────────────────────────────────────────┤
-│                                             │
-│  📸 Input                                  │
-│     • Ảnh chụp đơn thuốc                   │
-│     • PDF từ bệnh viện                     │
-│     • Chữ viết tay bác sĩ                  │
-│                                             │
-│  🤖 AI Processing                          │
-│     • Deep Learning CNN                    │
-│     • Train với 10,000+ đơn mẫu            │
-│     • NLP hiểu ngữ cảnh y tế               │
-│                                             │
-│  ✅ Output                                 │
-│     • JSON danh sách thuốc                 │
-│     • Độ chính xác: 95%                    │
+│  🤖 AI/OCR ĐỌC ĐƠN THUỐC                  │
+│     • Input: Ảnh chụp/PDF đơn thuốc        │
+│     • AI: CNN train với 10K+ mẫu           │
+│     • Output: JSON danh sách thuốc         │
 │     • Thời gian: < 5 giây                  │
+│     • Độ chính xác: 95%                    │
+│     → Giảm 80% thời gian đọc đơn           │
 │                                             │
-│  💡 Giảm 80% thời gian đọc đơn             │
+│  ☁️  DEPLOYMENT AWS                        │
+│     • Load Balancer + Auto Scaling         │
+│     • HA/DR: 99.9% uptime                  │
+│     • 12 tháng triển khai (4 quarters)     │
 └─────────────────────────────────────────────┘
 ```
 
----
-
-### SLIDE 21: DEPLOYMENT DIAGRAM
-
-**Sơ đồ:** Infrastructure Deployment
-
-```
-Client Devices → Internet → AWS Cloud:
-  - Load Balancer
-  - App Servers (Auto Scaling)
-  - Database Cluster (Primary + Replica)
-  - Redis Cache
-  - S3 Storage
-  - Daily Backup
-```
-
-**Highlight:**
-
-- High Availability (99.9% uptime)
-- Auto Scaling (handle peak hours)
-- DR Site (Disaster Recovery)
+**Sơ đồ:** Deployment Diagram AWS
 
 ---
 
-### SLIDE 22: KẾ HOẠCH 12 THÁNG
+## SLIDE 7: TÀI CHÍNH & ROI (Hoàng Văn Cường - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│         ROADMAP TRIỂN KHAI 12 THÁNG        │
+│         PHÂN TÍCH TÀI CHÍNH - ROI          │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  Q1 (Tháng 1-3): Nền móng                 │
-│     ✓ Setup Cloud Infrastructure           │
-│     ✓ Xây dựng hệ thống Auth/IAM           │
-│     ✓ Module bán hàng cơ bản               │
+│  💰 CHI PHÍ ĐẦU TƯ: 1,650M VNĐ            │
+│     • Phần mềm: 800M (48%)                 │
+│     • Phần cứng: 300M (18%)                │
+│     • Triển khai: 400M (24%)               │
+│     • Đào tạo: 100M + Dự phòng: 50M        │
 │                                             │
-│  Q2 (Tháng 4-6): Tính năng chính           │
-│     ✓ OCR đọc đơn thuốc                    │
-│     ✓ DDI checking                         │
-│     ✓ Quản lý kho FEFO                     │
+│  � CHI PHÍ VẬN HÀNH: 1,644M/năm          │
+│  � LỢI ÍCH: 1,776M VNĐ/năm               │
+│     • Tiết kiệm nhân sự: 720M              │
+│     • Giảm thất thoát: 480M                │
+│     • Tăng doanh thu: 420M                 │
+│     • Khác: 156M                           │
 │                                             │
-│  Q3 (Tháng 7-9): Nâng cao                 │
-│     ✓ BHYT integration                     │
-│     ✓ AI forecasting                       │
-│     ✓ Mobile app                           │
+│  ✅ KẾT QUẢ                                │
+│     • NPV (8%): +1,234M VNĐ                │
+│     • IRR: 24.5%                           │
+│     • Payback: 3.2 năm                     │
+│     • ROI 5 năm: 72.8%                     │
 │                                             │
-│  Q4 (Tháng 10-12): Go-live                │
-│     ✓ UAT testing                          │
-│     ✓ Training                             │
-│     ✓ Deployment                           │
+│  📊 So sánh: Rẻ hơn SAP 60%                │
 └─────────────────────────────────────────────┘
 ```
 
+**Biểu đồ:** Cash flow 5 năm
+
 ---
 
-## PHẦN 5: PHÂN TÍCH TÀI CHÍNH (Hoàng Văn Cường)
-
-### SLIDE 23: TỔNG QUAN TÀI CHÍNH
+## SLIDE 8: QUẢN LÝ DỰ ÁN (Đào Duy Minh - 2 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│          TỔNG QUAN CHI PHÍ - LỢI ÍCH       │
+│    AGILE, RỦI RO & ĐÀO TẠO                 │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  💰 TỔNG ĐẦU TƯ BAN ĐẦU                   │
-│     1,650 triệu VNĐ                        │
+│  🔄 PHƯƠNG PHÁP AGILE                      │
+│     • 2 tuần/sprint × 24 sprints/năm       │
+│     • Daily standup + Sprint review        │
+│     • Linh hoạt thay đổi requirements      │
 │                                             │
-│  📅 CHI PHÍ VẬN HÀNH/NĂM                   │
-│     1,644 triệu VNĐ                        │
+│  ⚠️  5 RỦI RO CHÍNH & GIẢI PHÁP           │
+│     1. OCR không chính xác → Manual backup │
+│     2. Quy định thay đổi → Thiết kế linh hoạt│
+│     3. BHYT API thay đổi → Adapter pattern │
+│     4. Nhân viên kháng cự → Đào tạo kỹ    │
+│     5. Vượt ngân sách → Dự phòng 15%       │
 │                                             │
-│  📈 LỢI ÍCH/NĂM                            │
-│     1,776 triệu VNĐ                        │
+│  � ĐÀO TẠO                                │
+│     • Dược sĩ: 40h (OCR, DDI, tư vấn)     │
+│     • Thủ kho: 32h (FEFO, báo cáo)        │
+│     • Thu ngân: 24h (POS, BHYT)            │
+│     • Quản lý: 16h (Dashboard, KPI)        │
 │                                             │
-│  ⏱️  HOÀN VỐN                              │
-│     3.2 năm                                │
-│                                             │
-│  💵 ROI 5 NĂM                              │
-│     72.8%                                  │
+│  🎯 KPI THÀNH CÔNG                         │
+│     Thời gian: 10'→3' | Accuracy: 85→99%   │
+│     Doanh thu: +15% | NPS: >8/10           │
 └─────────────────────────────────────────────┘
 ```
 
 ---
 
-### SLIDE 24: CHI TIẾT CHI PHÍ ĐẦU TƯ
+## SLIDE 9: KẾT LUẬN & LỢI ÍCH (Cả nhóm - 1 phút)
 
 ```
 ┌─────────────────────────────────────────────┐
-│        CHI PHÍ ĐẦU TƯ - 1,650 TRIỆU       │
+│      7 VẤN ĐỀ → 1 HỆ THỐNG → KẾT QUẢ      │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  💻 Phần mềm & Bản quyền: 800M (48%)       │
-│     • ERP License                          │
-│     • OCR API License                      │
-│     • Security Tools                       │
+│  ✅ GIẢI PHÁP TOÀN DIỆN                    │
+│     • 8 module tích hợp                    │
+│     • AI/OCR tự động hóa                   │
+│     • Cloud deployment                     │
+│     • 12 tháng triển khai                  │
 │                                             │
-│  🖥️  Phần cứng: 300M (18%)                │
-│     • Server/Workstation                   │
-│     • Network Equipment                    │
-│     • POS Terminals                        │
+│  🎯 KẾT QUẢ MONG ĐỢI                       │
+│     • Giảm 70% thời gian phục vụ           │
+│     • Tiết kiệm 27.9M VNĐ/6 tháng          │
+│     • Tăng 15% doanh thu                   │
+│     • ROI 72.8% trong 5 năm                │
 │                                             │
-│  ⚙️  Triển khai: 400M (24%)                │
-│     • Development                          │
-│     • Integration                          │
-│     • Testing                              │
+│  👥 LỢI ÍCH CHO TẤT CẢ                     │
+│     � Công ty: +Lợi nhuận, +Hiệu quả     │
+│     👨‍⚕️ Nhân viên: -Stress, +Năng suất   │
+│     😊 Khách hàng: Nhanh, An toàn, Tiện lợi│
 │                                             │
-│  📚 Đào tạo: 100M (6%)                     │
-│  🔧 Dự phòng: 50M (3%)                     │
+│  � TẦM NHÌN: Leading Pharmacy Tech SEA    │
 └─────────────────────────────────────────────┘
 ```
 
 ---
 
-### SLIDE 25: LỢI ÍCH HÀNG NĂM
-
-```
-┌─────────────────────────────────────────────┐
-│       LỢI ÍCH 1,776 TRIỆU VNĐ/NĂM         │
-├─────────────────────────────────────────────┤
-│                                             │
-│  1️⃣  Tiết kiệm nhân sự: 720M             │
-│     • Giảm 2 người kiểm kê                 │
-│     • Tự động hóa báo cáo                  │
-│     • Tối ưu ca làm việc                   │
-│                                             │
-│  2️⃣  Giảm thất thoát: 480M                │
-│     • Không còn thuốc hết hạn              │
-│     • Kiểm soát tồn kho chính xác          │
-│     • Giảm sai sót bán hàng                │
-│                                             │
-│  3️⃣  Tăng doanh thu: 420M                 │
-│     • Phục vụ nhanh hơn                    │
-│     • Luôn có hàng                         │
-│     • Tư vấn tốt hơn                       │
-│                                             │
-│  4️⃣  Khác: 156M                           │
-│     • Giảm chi phí vận hành                │
-│     • Tối ưu marketing                     │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 26: PHÂN TÍCH ROI 5 NĂM
-
-```
-┌─────────────────────────────────────────────┐
-│           DÒNG TIỀN DỰ KIẾN 5 NĂM          │
-├─────────────────────────────────────────────┤
-│                                             │
-│  Năm 0:  -1,650 triệu (Đầu tư)             │
-│  Năm 1:   +132 triệu                       │
-│  Năm 2:   +132 triệu                       │
-│  Năm 3:   +132 triệu                       │
-│  Năm 4:   +132 triệu                       │
-│  Năm 5:   +132 triệu                       │
-│                                             │
-│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│  NPV (8%): +1,234 triệu VNĐ                │
-│  IRR: 24.5%                                │
-│  Payback: 3.2 năm                          │
-│  ROI: 72.8%                                │
-│                                             │
-│  📊 Biểu đồ: Dòng tiền tích lũy            │
-└─────────────────────────────────────────────┘
-```
-
-**Biểu đồ:** Line chart cash flow
-
----
-
-### SLIDE 27: SO SÁNH VỚI CÁC PHƯƠNG ÁN KHÁC
-
-```
-┌─────────────────────────────────────────────┐
-│      SO SÁNH VỚI GIẢI PHÁP THAY THẾ        │
-├─────────────────────────────────────────────┤
-│                                             │
-│  Option 1: Tự phát triển (Đề xuất)        │
-│     💰 Chi phí: 1,650M                     │
-│     ⏱️ Thời gian: 12 tháng                 │
-│     ✅ Kiểm soát 100%                      │
-│     ✅ Tùy chỉnh linh hoạt                 │
-│                                             │
-│  Option 2: SAP Healthcare                 │
-│     💰 Chi phí: 4,500M                     │
-│     ⏱️ Thời gian: 18 tháng                 │
-│     ❌ Phức tạp                            │
-│     ❌ License đắt                         │
-│                                             │
-│  Option 3: Giải pháp Việt Nam             │
-│     💰 Chi phí: 2,200M                     │
-│     ⏱️ Thời gian: 9 tháng                  │
-│     ❌ Hạn chế tính năng                   │
-│     ❌ Support kém                         │
-│                                             │
-│  ✅ Chọn Option 1: Tiết kiệm 60%           │
-└─────────────────────────────────────────────┘
-```
-
----
-
-## PHẦN 6: KẾ HOẠCH THỰC HIỆN (Đào Duy Minh)
-
-### SLIDE 28: PHƯƠNG PHÁP AGILE
-
-```
-┌─────────────────────────────────────────────┐
-│       TRIỂN KHAI THEO PHƯƠNG PHÁP AGILE    │
-├─────────────────────────────────────────────┤
-│                                             │
-│  🔄 Sprint Planning                        │
-│     • 2 tuần/sprint                        │
-│     • 6 sprints/quarter                    │
-│     • 24 sprints/năm                       │
-│                                             │
-│  📋 Sprint Workflow                        │
-│     Mon: Sprint Planning                   │
-│     Tue-Thu: Development                   │
-│     Fri: Sprint Review & Retro             │
-│     Daily: Stand-up 15 phút                │
-│                                             │
-│  🎯 Deliverables mỗi Sprint                │
-│     • Working software                     │
-│     • Documentation                        │
-│     • Demo cho stakeholders                │
-│                                             │
-│  ✅ Lợi ích Agile                          │
-│     • Linh hoạt thay đổi                   │
-│     • Feedback nhanh                       │
-│     • Giảm rủi ro                          │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 29: QUẢN LÝ RỦI RO
-
-```
-┌─────────────────────────────────────────────┐
-│         5 RỦI RO CHÍNH & GIẢI PHÁP         │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ⚠️  RỦI RO 1: OCR không đủ chính xác     │
-│     → Backup: Manual entry                 │
-│     → Mitigation: Train với 10K+ mẫu       │
-│                                             │
-│  ⚠️  RỦI RO 2: Quy định Bộ Y tế thay đổi  │
-│     → Tham vấn luật sư chuyên ngành        │
-│     → Thiết kế linh hoạt, dễ điều chỉnh    │
-│                                             │
-│  ⚠️  RỦI RO 3: BHYT API thay đổi          │
-│     → Adapter pattern                      │
-│     → Phương án dự phòng                   │
-│                                             │
-│  ⚠️  RỦI RO 4: Nhân viên kháng cự         │
-│     → Đào tạo kỹ lưỡng                     │
-│     → Change management                    │
-│                                             │
-│  ⚠️  RỦI RO 5: Vượt ngân sách             │
-│     → Review hàng tháng                    │
-│     → Dự phòng 15%                         │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 30: KẾ HOẠCH ĐÀO TẠO
-
-```
-┌─────────────────────────────────────────────┐
-│          CHƯƠNG TRÌNH ĐÀO TẠO              │
-├─────────────────────────────────────────────┤
-│                                             │
-│  👨‍⚕️ DƯỢC SĨ (40 giờ)                     │
-│     • Sử dụng OCR đọc đơn                  │
-│     • Hiểu cảnh báo DDI                    │
-│     • Tư vấn dựa trên hệ thống             │
-│     • Xử lý các tình huống đặc biệt        │
-│                                             │
-│  💰 THU NGÂN (24 giờ)                      │
-│     • POS mới                              │
-│     • Thanh toán đa kênh                   │
-│     • BHYT integration                     │
-│                                             │
-│  📦 THỦ KHO (32 giờ)                       │
-│     • Quản lý theo lô/HSD                  │
-│     • FEFO principle                       │
-│     • Báo cáo tồn kho                      │
-│                                             │
-│  👔 QUẢN LÝ (16 giờ)                       │
-│     • Dashboard & KPI                      │
-│     • Reports & Analytics                  │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 31: KPI ĐO LƯỜNG THÀNH CÔNG
-
-```
-┌─────────────────────────────────────────────┐
-│          CHỈ SỐ ĐÁNH GIÁ THÀNH CÔNG        │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ⏱️  VẬN HÀNH                              │
-│     Before → After                         │
-│     • Thời gian phục vụ: 10' → 3'          │
-│     • Độ chính xác kho: 85% → 99%          │
-│     • Thời gian kiểm kê: 8h → 2h           │
-│                                             │
-│  💰 KINH DOANH                             │
-│     • Doanh thu/giao dịch: +15%            │
-│     • Số khách/ngày: +20%                  │
-│     • Tỷ lệ quay lại: 60% → 80%            │
-│                                             │
-│  😊 KHÁCH HÀNG                             │
-│     • NPS Score: > 8/10                    │
-│     • Satisfaction: > 4.5/5                │
-│     • Complaint rate: < 1%                 │
-│                                             │
-│  👥 NHÂN VIÊN                              │
-│     • Năng suất: +30%                      │
-│     • Satisfaction: > 4/5                  │
-└─────────────────────────────────────────────┘
-```
-
----
-
-## PHẦN 7: KẾT LUẬN & DEMO
-
-### SLIDE 32: TỔNG KẾT GIẢI PHÁP
-
-```
-┌─────────────────────────────────────────────┐
-│      7 VẤN ĐỀ → 1 HỆ THỐNG TÍCH HỢP       │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ✅ Vấn đề 1: Kho                          │
-│     → Module Inventory + FEFO              │
-│     → Cảnh báo tự động                     │
-│                                             │
-│  ✅ Vấn đề 2: Tốc độ                       │
-│     → OCR + POS tự động                    │
-│     → Giảm 70% thời gian                   │
-│                                             │
-│  ✅ Vấn đề 3: CRM                          │
-│     → Lưu lịch sử + Loyalty                │
-│                                             │
-│  ✅ Vấn đề 4: Dự báo                       │
-│     → AI forecasting                       │
-│                                             │
-│  ✅ Vấn đề 5-7: HR, Data, Infrastructure   │
-│     → Tự động hóa 100%                     │
-│                                             │
-│  💰 ROI: 72.8% trong 5 năm                 │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 33: LỢI ÍCH CHO CÁC BÊN
-
-```
-┌─────────────────────────────────────────────┐
-│          AI ĐƯỢC LỢI GÌ TỪ HỆ THỐNG?       │
-├─────────────────────────────────────────────┤
-│                                             │
-│  🏢 LONG CHÂU (CÔNG TY)                    │
-│     ✓ Tăng doanh thu 15-20%                │
-│     ✓ Giảm chi phí vận hành 12%            │
-│     ✓ Tăng lợi nhuận ròng                  │
-│     ✓ Dữ liệu để mở rộng                   │
-│                                             │
-│  👥 NHÂN VIÊN                              │
-│     ✓ Làm việc dễ dàng hơn                 │
-│     ✓ Giảm stress, sai sót                 │
-│     ✓ Lương thưởng minh bạch               │
-│     ✓ Kỹ năng IT tăng                      │
-│                                             │
-│  😊 KHÁCH HÀNG                             │
-│     ✓ Phục vụ nhanh chóng                  │
-│     ✓ Tư vấn chính xác                     │
-│     ✓ An toàn hơn (DDI)                    │
-│     ✓ Trải nghiệm tốt hơn                  │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 34: TẦM NHÌN TƯƠNG LAI
-
-```
-┌─────────────────────────────────────────────┐
-│           ROADMAP TƯƠNG LAI                │
-├─────────────────────────────────────────────┤
-│                                             │
-│  📅 NĂM 1-2 (2025-2026)                    │
-│     • Triển khai tại 175 Tây Sơn          │
-│     • Pilot tại 5-10 cửa hàng khác         │
-│     • Tối ưu dựa trên feedback             │
-│                                             │
-│  📅 NĂM 3 (2027)                           │
-│     • Scale lên 100 cửa hàng               │
-│     • Tích hợp IoT (tủ lạnh thông minh)    │
-│     • Chatbot AI tư vấn 24/7               │
-│                                             │
-│  📅 NĂM 4-5 (2028-2029)                    │
-│     • Toàn bộ 1,100+ cửa hàng              │
-│     • Xuất khẩu giải pháp                  │
-│     • Mở rộng sang bán lẻ khác             │
-│                                             │
-│  🌟 TẦM NHÌN                               │
-│     "Leading pharmacy tech in SEA"         │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 35: DEMO VIDEO (Nếu có)
-
-```
-┌─────────────────────────────────────────────┐
-│              DEMO HỆ THỐNG                 │
-├─────────────────────────────────────────────┤
-│                                             │
-│  🎬 Video Demo (2-3 phút)                  │
-│                                             │
-│     1. Scan đơn thuốc → OCR đọc            │
-│     2. Hệ thống check DDI                  │
-│     3. FEFO pick thuốc                     │
-│     4. Thanh toán BHYT                     │
-│     5. Dashboard real-time                 │
-│                                             │
-│  📸 Screenshots                            │
-│     • Giao diện POS                        │
-│     • Mobile app                           │
-│     • Dashboard quản lý                    │
-│     • Báo cáo                              │
-│                                             │
-│  [PLAY VIDEO]                              │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 36: LESSONS LEARNED
-
-```
-┌─────────────────────────────────────────────┐
-│           BÀI HỌC RÚT RA                   │
-├─────────────────────────────────────────────┤
-│                                             │
-│  1️⃣  Phân tích kỹ trước khi thiết kế      │
-│     → 65 sự cố → 7 vấn đề chính            │
-│                                             │
-│  2️⃣  Công nghệ phục vụ nghiệp vụ          │
-│     → Không dùng tech vì tech              │
-│     → Giải quyết vấn đề thực tế            │
-│                                             │
-│  3️⃣  Người dùng là trung tâm              │
-│     → Thiết kế dễ dùng                     │
-│     → Đào tạo kỹ lưỡng                     │
-│                                             │
-│  4️⃣  Quản lý rủi ro proactive             │
-│     → Dự phòng cho mọi tình huống          │
-│                                             │
-│  5️⃣  ROI là thước đo quan trọng           │
-│     → Mọi quyết định dựa trên số liệu      │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 37: KẾT LUẬN
-
-```
-┌─────────────────────────────────────────────┐
-│              KẾT LUẬN                      │
-├─────────────────────────────────────────────┤
-│                                             │
-│  ✅ ĐÃ THỰC HIỆN                           │
-│     • Phân tích 65 sự cố thực tế           │
-│     • Xác định 7 vấn đề chính              │
-│     • Thiết kế hệ thống 8 module           │
-│     • Tính toán ROI 72.8%                  │
-│     • Lập kế hoạch 12 tháng                │
-│                                             │
-│  🎯 ĐÓNG GÓP                               │
-│     • Áp dụng UML vào thực tế              │
-│     • Giải pháp cho ngành dược             │
-│     • Kết hợp AI/ML vào quản lý            │
-│                                             │
-│  💡 Ý NGHĨA                                │
-│     • Học thuật: Minh họa MIS              │
-│     • Thực tiễn: Có thể triển khai         │
-│     • Kinh tế: ROI cao, khả thi            │
-│                                             │
-│  🙏 Cảm ơn Thầy và các bạn đã lắng nghe!   │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 38: Q&A
+## SLIDE 10: Q&A & CẢM ƠN
 
 ```
 ┌─────────────────────────────────────────────┐
 │              HỎI & ĐÁP                     │
 ├─────────────────────────────────────────────┤
-│                                             │
 │                                             │
 │                    ❓                       │
 │                                             │
@@ -1041,132 +293,64 @@ Client Devices → Internet → AWS Cloud:
 │         CÁC CÂU HỎI CỦA THẦY               │
 │              VÀ CÁC BẠN                    │
 │                                             │
-│                                             │
 │  📧 Contact:                               │
 │     Email: nhom3.64httt4@tlu.edu.vn        │
-│     GitHub: github.com/nhom3-longchau      │
 │                                             │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 39: TÀI LIỆU THAM KHẢO
-
-```
-┌─────────────────────────────────────────────┐
-│          TÀI LIỆU THAM KHẢO                │
-├─────────────────────────────────────────────┤
-│                                             │
-│  📚 Sách & Giáo trình                      │
-│  [1] Quản trị HTTT - NXB ĐHQG              │
-│  [2] UML Distilled - Martin Fowler         │
-│  [3] Database Systems - Elmasri            │
-│                                             │
-│  🌐 Báo cáo & Website                      │
-│  [4] VPA Annual Report 2024                │
-│  [5] FPT Retail Financial Report           │
-│  [6] longchau.com.vn                       │
-│                                             │
-│  📄 Chuẩn & Quy định                       │
-│  [7] Thông tư 52/2017/TT-BYT               │
-│  [8] Luật Dược 2016                        │
-│  [9] UML 2.0 Specification - OMG           │
-│                                             │
-│  💻 Công nghệ                              │
-│  [10] TensorFlow OCR Documentation         │
-│  [11] PostgreSQL Official Docs             │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### SLIDE 40: CẢM ƠN
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│                                             │
-│              🎓 CẢM ƠN! 🎓                │
-│                                             │
+│  🎓 CẢM ƠN THẦY VÀ CÁC BẠN! 🎓            │
 │                                             │
 │     Nhóm 3 - Lớp 64HTTT4                   │
 │     Trường Đại học Thủy lợi                │
 │                                             │
-│                                             │
 │   "Technology for Better Healthcare"       │
-│                                             │
-│                                             │
-│     Kính chúc Thầy dồi dào sức khỏe       │
-│        Chúc các bạn học tốt! 📚           │
-│                                             │
-│                                             │
 └─────────────────────────────────────────────┘
 ```
 
-**Hình ảnh:** Logo trường, hình ảnh nhóm
+**Hình ảnh:** Logo trường + Long Châu
 
 ---
 
-## 📝 HƯỚNG DẪN SỬ DỤNG FILE SLIDE
+## 📝 HƯỚNG DẪN SỬ DỤNG (10 SLIDES)
 
-### ✅ Cách tạo PowerPoint:
+### ✅ Phân công thời gian:
 
-1. **Mở PowerPoint** → New Presentation
-2. **Chọn theme** Professional (ví dụ: Ion, Facet)
-3. **Copy nội dung** từng slide ở trên
-4. **Thêm hình ảnh:**
-   - Logo trường
-   - Logo Long Châu
-   - Sơ đồ PlantUML (export PNG)
-   - Charts (Excel → paste)
-   - Screenshots (nếu có demo)
+| Slide | Người thuyết trình | Thời gian | Nội dung chính           |
+| ----- | ------------------ | --------- | ------------------------ |
+| 1-2   | Cả nhóm            | 30s       | Giới thiệu, thành viên   |
+| 3     | Phạm Năng Ân       | 2 phút    | 7 vấn đề tại 175 Tây Sơn |
+| 4     | Nguyễn Bảo Tuấn    | 2 phút    | Use Case + Quy trình     |
+| 5     | Bùi Đức Tùng       | 2 phút    | Kiến trúc + Database     |
+| 6     | Phan Văn Định      | 2 phút    | Công nghệ + Deployment   |
+| 7     | Hoàng Văn Cường    | 2 phút    | Tài chính + ROI          |
+| 8     | Đào Duy Minh       | 2 phút    | Agile + Rủi ro + KPI     |
+| 9     | Cả nhóm            | 1 phút    | Kết luận tổng hợp        |
+| 10    | Cả nhóm            | 30s + Q&A | Cảm ơn + Trả lời         |
 
-### 🎨 Màu sắc đề xuất:
+**TỔNG:** ~13 phút thuyết trình + 2 phút Q&A = **15 phút**
+
+### 🎨 Màu sắc & Font:
 
 - **Primary:** #0066CC (Xanh dương)
-- **Secondary:** #00AA55 (Xanh lá - Long Châu)
-- **Accent:** #FF6600 (Cam)
-- **Text:** #333333 (Xám đậm)
-- **Background:** #FFFFFF (Trắng)
+- **Secondary:** #00AA55 (Xanh lá Long Châu)
+- **Tiêu đề:** Arial Bold 32pt
+- **Nội dung:** Arial Regular 18pt
 
-### 📐 Font chữ:
+### � Sơ đồ cần chèn:
 
-- **Tiêu đề:** Montserrat Bold / Arial Bold (28-36pt)
-- **Nội dung:** Montserrat Regular / Arial (16-20pt)
-- **Note:** Montserrat Light / Arial (12-14pt)
+- **Slide 3:** Biểu đồ tròn phân bổ thiệt hại
+- **Slide 4:** Use Case Diagram + Activity Diagram
+- **Slide 5:** Architecture 3-tier + ERD
+- **Slide 6:** Deployment Diagram AWS
+- **Slide 7:** Line chart cash flow 5 năm
 
-### 🖼️ Layout mỗi slide:
+### 🎯 Tips thuyết trình:
 
-- **Header:** Tiêu đề slide (màu primary)
-- **Body:** Nội dung chính (bullet points)
-- **Footer:** Logo + Số trang + Tên nhóm
-
-### ⏱️ Timing:
-
-- Slide 1-3: 2 phút
-- Phần 1 (4-8): 5 phút - **Phạm Năng Ân**
-- Phần 2 (9-13): 5 phút - **Nguyễn Bảo Tuấn**
-- Phần 3 (14-18): 5 phút - **Bùi Đức Tùng**
-- Phần 4 (19-22): 4 phút - **Phan Văn Định**
-- Phần 5 (23-27): 4 phút - **Hoàng Văn Cường**
-- Phần 6 (28-31): 4 phút - **Đào Duy Minh**
-- Phần 7 (32-40): 3 phút - **Kết luận chung**
-
-**TỔNG:** ~30 phút + 5 phút Q&A = **35 phút**
+1. **Mỗi người 2 phút** - Tập luyện với đồng hồ
+2. **Nói tự nhiên** - Không đọc slide
+3. **Kể câu chuyện** - Ví dụ về bà cụ mua thuốc
+4. **Pointer** - Chỉ vào điểm quan trọng
+5. **Handoff mượt** - "Tiếp theo, bạn Tuấn sẽ trình bày..."
+6. **Backup Q&A** - Chuẩn bị 10 câu hỏi có thể có
 
 ---
 
-## 🎯 TIP THUYẾT TRÌNH
-
-1. **Không đọc slide:** Slide chỉ là gợi ý
-2. **Nhìn vào audience:** Giao tiếp bằng mắt
-3. **Sử dụng pointer:** Chỉ vào điểm quan trọng
-4. **Kể chuyện:** Ví dụ về bà cụ mua thuốc
-5. **Tự tin:** Nắm vững nội dung
-6. **Backup:** Chuẩn bị trả lời câu hỏi
-
----
-
-**File này sẵn sàng để convert sang PowerPoint!** 🎉
+**File này tối ưu cho thuyết trình 15 phút!** 🎉
