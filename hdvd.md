@@ -82,9 +82,9 @@ Tuy nhiên, qua khảo sát thực tế trong 6 tháng qua, chúng em phát hi�
 
 ---
 
-## CHƯƠNG 2: THIẾT KẾ HỆ THỐNG (Nguyễn Ngọc Bảo Tuấn) - 5 phút
+## CHƯƠNG 2: THIẾT KẾ HỆ THỐNG (Nguyễn Ngọc Bảo Tuấn & Hoàng Văn Cường) - 5 phút
 
-### 2.1. Tổng quan giải pháp
+### 2.1. Tổng quan giải pháp (Nguyễn Ngọc Bảo Tuấn)
 
 Cảm ơn bạn Định. Em là Nguyễn Bảo Tuấn, phụ trách thiết kế UML và cơ sở dữ liệu.
 
@@ -106,7 +106,7 @@ Cảm ơn bạn Định. Em là Nguyễn Bảo Tuấn, phụ trách thiết kế
 - Redis cho cache
 - Data Warehouse cho phân tích
 
-### 2.2. Phân tích UML
+### 2.2. Phân tích UML (Nguyễn Ngọc Bảo Tuấn)
 
 Nhóm em sử dụng **ngôn ngữ UML chuẩn quốc tế** để thiết kế hệ thống, với tất cả các sơ đồ được chuyển ngữ sang tiếng Việt để dễ hiểu.
 
@@ -126,9 +126,9 @@ Các ca sử dụng quan trọng nhất bao gồm:
 - **UC_FEFO:** Xuất kho theo nguyên tắc "hết hạn trước xuất trước"
 - **UC_Reorder:** Đặt hàng tự động khi tồn kho thấp
 
-### 2.3. Quy trình bán hàng thông minh
+### 2.3. Quy trình bán hàng thông minh (Hoàng Văn Cường) - 1.5 phút
 
-Cho phép em trình bày chi tiết quy trình bán hàng - đây là quy trình cốt lõi giải quyết **Vấn đề 2** về tốc độ phục vụ chậm.
+Cảm ơn bạn Tuấn. Em là Hoàng Văn Cường, em xin phép trình bày chi tiết quy trình bán hàng - đây là quy trình cốt lõi giải quyết **Vấn đề 2** về tốc độ phục vụ chậm.
 
 **Quy trình cũ (8-12 phút):**
 
@@ -166,9 +166,11 @@ _Giai đoạn 4 - Thanh toán và BHYT:_
 
 **Kết quả:** Giảm thời gian từ 10 phút xuống 3 phút, tăng năng suất 70%, và quan trọng nhất là **đảm bảo an toàn cho bệnh nhân**.
 
-### 2.4. Sơ đồ Tuần tự và State Diagram
+Em xin chuyển lại cho bạn Tuấn trình bày tiếp.
 
-**Sơ đồ Tuần tự (Sequence Diagram)** mô tả chi tiết 17 bước tương tác giữa các thành phần:
+### 2.4. Sơ đồ Tuần tự và State Diagram (Nguyễn Ngọc Bảo Tuấn)
+
+Cảm ơn bạn Cường. **Sơ đồ Tuần tự (Sequence Diagram)** mô tả chi tiết 17 bước tương tác giữa các thành phần:
 
 - POS ↔ OCR Engine
 - OCR ↔ Drug Normalizer (chuẩn hóa tên thuốc)
@@ -178,7 +180,7 @@ _Giai đoạn 4 - Thanh toán và BHYT:_
 
 **State Diagram** mô tả vòng đời của mỗi lô thuốc từ lúc nhập kho đến hết hạn, đảm bảo truy xuất nguồn gốc đầy đủ.
 
-### 2.5. Cơ sở dữ liệu
+### 2.5. Cơ sở dữ liệu (Nguyễn Ngọc Bảo Tuấn)
 
 Nhóm em thiết kế **ERD với 15 bảng chính**, trong đó 7 bảng cốt lõi:
 
@@ -202,7 +204,7 @@ Em xin mời bạn Tùng trình bày phần triển khai kỹ thuật.
 
 ## CHƯƠNG 3: TRIỂN KHAI HỆ THỐNG (Bùi Đức Tùng) - 3.5 phút
 
-### 3.1. Công nghệ sử dụng
+### 3.1. Công nghệ sử dụng (Bùi Đức Tùng)
 
 Xin chào thầy cô, em là Bùi Đức Tùng, phụ trách kiến trúc và triển khai.
 
@@ -234,7 +236,7 @@ Nhóm em lựa chọn **technology stack hiện đại và phù hợp** với qu
   - CloudFront CDN
   - Lambda cho serverless functions
 
-### 3.2. Kiến trúc Deployment
+### 3.2. Kiến trúc Deployment (Bùi Đức Tùng)
 
 Nhóm em thiết kế **kiến trúc triển khai 3 lớp** với high availability:
 
@@ -259,7 +261,7 @@ Nhóm em thiết kế **kiến trúc triển khai 3 lớp** với high availabil
 
 **Mục tiêu SLA:** 99.9% uptime - chỉ chấp nhận downtime tối đa 43 phút/tháng.
 
-### 3.3. Component Diagram - 8 Module chính
+### 3.3. Component Diagram - 8 Module chính (Bùi Đức Tùng)
 
 Hệ thống được chia thành **8 microservices độc lập**:
 
@@ -314,7 +316,7 @@ Hệ thống được chia thành **8 microservices độc lập**:
 - ABC/XYZ analysis sản phẩm
 - Predictive analytics
 
-### 3.4. Bảo mật và tuân thủ
+### 3.4. Bảo mật và tuân thủ (Bùi Đức Tùng)
 
 **Security measures:**
 
@@ -330,46 +332,7 @@ Hệ thống được chia thành **8 microservices độc lập**:
 - Nghị định 13/2023 về bảo vệ dữ liệu cá nhân
 - Luật An toàn thông tin mạng 2018
 
-### 3.5. Đạo đức AI trong hệ thống
-
-Đây là phần rất quan trọng vì liên quan đến tính mạng con người.
-
-Nhóm em đã xây dựng **khung đạo đức AI** dựa trên 5 nguyên tắc:
-
-**1. Không gây hại (Non-Maleficence):**
-
-- OCR chỉ hiển thị kết quả nếu confidence ≥ 95%
-- Dược sĩ BẮT BUỘC kiểm tra lại trước khi bán
-- DDI database cập nhật hàng tháng
-
-**2. Làm điều tốt (Beneficence):**
-
-- AI ưu tiên gợi ý thuốc generic rẻ hơn (tiết kiệm 85K cho khách)
-- Không ưu tiên thuốc có margin cao
-
-**3. Quyền tự quyết (Autonomy):**
-
-- Khách hàng có quyền từ chối AI, yêu cầu tư vấn trực tiếp
-- Consent rõ ràng khi thu thập dữ liệu
-
-**4. Công bằng (Justice):**
-
-- Không phân biệt đối xử dựa trên khả năng chi trả
-- Audit định kỳ phát hiện bias
-
-**5. Giải thích được (Explainability):**
-
-- Mọi khuyến nghị AI phải kèm lý do
-- Ví dụ: "Không khuyên thuốc X vì đang dùng thuốc Y, có nguy cơ rối loạn nhịp tim (DDI-2341)"
-
-**Quy trình xử lý sự cố:**
-
-- 0-2 giờ: Tắt tính năng, thông báo khách hàng
-- 2-24 giờ: Điều tra, báo cáo Bộ Y tế (nếu nghiêm trọng)
-- 1-7 ngày: Fix bug, test kỹ
-- 7-30 ngày: Cập nhật quy trình, đào tạo lại
-
-Em xin mời bạn Minh trình bày phần quản lý dự án.
+Em xin mời bạn Minh trình bày về Quản lý dự án.
 
 ---
 
