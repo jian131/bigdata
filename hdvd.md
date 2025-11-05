@@ -6,7 +6,9 @@
 
 ---
 
-## PHẦN MỞ ĐẦU (Phạm Năng Ân - Trưởng nhóm) - 1 phút
+## PHẦN MỞ ĐẦU & CHƯƠNG 1 (Phạm Năng Ân - Trưởng nhóm) - 4 phút
+
+### PHẦN MỞ ĐẦU - 1 phút
 
 Kính chào thầy cô và các bạn!
 
@@ -27,13 +29,9 @@ Xuất phát từ thực tế đó, nhóm chúng em đã chọn cơ sở Long Ch
 
 Bài trình bày của nhóm sẽ được chia thành 5 phần chính, bắt đầu với phần đánh giá hiện trạng.
 
----
+### CHƯƠNG 1: ĐÁNH GIÁ HIỆN TRẠNG - 3 phút
 
-## CHƯƠNG 1: ĐÁNH GIÁ HIỆN TRẠNG (Phan Văn Định) - 3 phút
-
-### 1.1. Tổng quan thị trường dược phẩm Việt Nam
-
-Xin chào thầy cô và các bạn, em là Phan Văn Định, phụ trách phần phân tích hiện trạng và thị trường.
+#### 1.1. Tổng quan thị trường dược phẩm Việt Nam
 
 Theo số liệu từ Hiệp hội Dược phẩm Việt Nam năm 2024, thị trường dược của chúng ta đang có những con số rất ấn tượng:
 
@@ -47,7 +45,7 @@ Hành vi người tiêu dùng cũng đang thay đổi rõ rệt:
 
 Công nghệ số cũng đang tạo ra những thay đổi căn bản. Đơn thuốc điện tử tăng 250% sau đại dịch, chatbot y tế được 38% người dùng tin tưởng, và 67% người dùng smartphone có ít nhất một ứng dụng sức khỏe.
 
-### 1.2. Phân tích Long Châu và cơ sở 175 Tây Sơn
+#### 1.2. Phân tích Long Châu và cơ sở 175 Tây Sơn
 
 Long Châu được thành lập năm 2018 bởi FPT Retail, và chỉ trong 6 năm đã trở thành chuỗi nhà thuốc lớn nhất Việt Nam với hơn 1.100 cửa hàng, chiếm 35% thị phần.
 
@@ -58,7 +56,7 @@ Cơ sở 175 Tây Sơn mà nhóm em nghiên cứu có vị trí đặc biệt:
 - Doanh thu đạt 650-750 triệu đồng mỗi tháng
 - Quản lý khoảng 4.200 sản phẩm dược phẩm
 
-### 1.3. Bảy vấn đề nghiêm trọng
+#### 1.3. Bảy vấn đề nghiêm trọng
 
 Tuy nhiên, qua khảo sát thực tế trong 6 tháng qua, chúng em phát hiện **7 vấn đề nghiêm trọng**:
 
@@ -82,7 +80,7 @@ Tuy nhiên, qua khảo sát thực tế trong 6 tháng qua, chúng em phát hi�
 
 ---
 
-## CHƯƠNG 2: THIẾT KẾ HỆ THỐNG (Nguyễn Ngọc Bảo Tuấn & Hoàng Văn Cường) - 5 phút
+## CHƯƠNG 2: THIẾT KẾ HỆ THỐNG (Nguyễn Ngọc Bảo Tuấn, Hoàng Văn Cường & Phan Văn Định) - 5 phút
 
 ### 2.1. Tổng quan giải pháp (Nguyễn Ngọc Bảo Tuấn)
 
@@ -180,7 +178,11 @@ Cảm ơn bạn Cường. **Sơ đồ Tuần tự (Sequence Diagram)** mô tả 
 
 **State Diagram** mô tả vòng đời của mỗi lô thuốc từ lúc nhập kho đến hết hạn, đảm bảo truy xuất nguồn gốc đầy đủ.
 
-### 2.5. Cơ sở dữ liệu (Nguyễn Ngọc Bảo Tuấn)
+Em xin mời bạn Định trình bày phần cơ sở dữ liệu.
+
+### 2.5. Cơ sở dữ liệu (Phan Văn Định) - 1 phút
+
+Cảm ơn bạn Tuấn. Em là Phan Văn Định.
 
 Nhóm em thiết kế **ERD với 15 bảng chính**, trong đó 7 bảng cốt lõi:
 
@@ -477,9 +479,9 @@ Em xin mời trưởng nhóm Năng Ân kết luận.
 
 ---
 
-## KẾT LUẬN (Phạm Năng Ân) - 1.5 phút
+## KẾT LUẬN (Phan Văn Định) - 1.5 phút
 
-Cảm ơn các bạn đã trình bày chi tiết.
+Cảm ơn các bạn đã trình bày chi tiết. Em là Phan Văn Định, em xin phép tổng kết lại.
 
 ### Tóm tắt thành tựu
 
@@ -555,6 +557,8 @@ Nhóm chúng em xin chân thành cảm ơn:
 Nhóm em hy vọng đề tài này không chỉ là một bài tập lớn mà còn là đóng góp nhỏ bé cho sự nghiệp chuyển đổi số y tế Việt Nam.
 
 **Nhóm em xin chân thành cảm ơn và rất mong nhận được góp ý của thầy cô!**
+
+_(Phạm Năng Ân, Trưởng nhóm, điều phối Q&A nếu có)_
 
 ---
 
